@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S.L.B:003</title>
+    <style>
+ 
+    </style>
+    <link rel="stylesheet" href="ค้นหา.css">
+    <link rel="stylesheet" href="slb003.CSS">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="top-header">
+         <a href="index.html">
+        <div class="header-left">
+            <div class="logo">
+                <img src="รูป/โลโก้.png" alt="S.L.B Logo"> </div>
+        </div>
+        </a>
+        
+            <div class="header-center">
+                <div class="search-box">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="ค้นหาข้อมูล S.L.B..." autocomplete="off">
+                <i class="fas fa-search"></i>
+                <div id="resultsList" class="search-results"></div>
+            </div>
+        </div>
+        <div class="header-right">
+            <button class="btn-signin">Sign In</button>
+            <i class="fas fa-user-circle user-icon"></i>
+        </div>
+    </header>
+
+    <nav class="side-nav-triggers">
+        <button onclick="toggleLeftMenu()" class="menu-trigger"><i class="fas fa-bars"></i> เมนูหลัก</button>
+        <div class="category-group">
+           <a href="7ระดับ.html"><button>ระดับ</button></a>
+            <a href="8ประเภท.html"><button>ประเภท</button></a>
+        </div>
+    </nav>
+
+    <div id="leftMenu" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="toggleLeftMenu()">&times;</a>
+        <a href="index.html"><i class="fas fa-home"></i> หน้าหลัก</a>
+        <a href="2เนื้อหลัก.html"><i class="fas fa-database"></i> เนื้อหาหลัก</a>
+        <a href="3คำอธิบายเนื้อหา.html"><i class="fas fa-file-alt"></i> คำอธิบายเนื้อหา</a>
+        <a href="4เกี่ยวกับเรา.html"><i class="fas fa-info-circle"></i> เกี่ยวกับเรา</a>
+        <a href="5เนื้อหาเสริม.html"><i class="fas fa-plus-square"></i> เนื้อหาเสริม</a>
+        <a href="6ติดต่อเรา.html"><i class="fas fa-envelope"></i> ติดต่อเรา</a>
+    </div>
+
+    <main class="container">
+    <script>
+    function toggleLeftMenu() {
+        const menu = document.getElementById("leftMenu");
+        // เช็คว่าเมนูเปิดอยู่หรือเปล่า ถ้ากว้าง 0 หรือยังไม่ได้ตั้งค่า ให้ขยายเป็น 250px
+        if (menu.style.width === "250px") {
+            menu.style.width = "0";
+        } else {
+            menu.style.width = "250px";
+        }
+    }
+
+</script>
+
+ส่วนของเนื้อหาหลัก
+<div class="main-content">
+    <div class="action-area-top"></div>
+        <div class="page-title">//cssฟอนบนสุด
+            <h1>S.L.B-003</h1>
+        </div>
+    <div class="page-content">
+<div class="slbรูป กรอบยาว">
+   <div class="window-header">
+        <span class="window-title">SYSTEM_VIEWER.EXE</span>
+        <div class="window-controls">
+            <span>-</span> <span>□</span> <span>×</span>
+        </div>
+    </div>
+
+    <div class="screen-content">
+        <img src="รูป/slb003ห้อง.png" alt="003" class="bg-image">
+        <img src="รูป/slb003ตัว.png" alt="Character Name" class="character-img">
+
+     <div id="choices-container" class="choices-container"></div>
+
+        <div class="dialogue-box">
+            <div id="name-tag" class="name-tag">Iris 003</div>
+                    <div id="dialogue-text" class="dialogue-text">
+                        ตรวจพบสัญญาณสิ่งมีชีวิต... "ตราบใดที่ยังมีใครจำภาพนั้นได้ เธอจะยังไม่หายไป"
+                 </div>
+             </div>
+        </div>
+    </div>
+
+     <div class="scp-image-caption">
+        <p>SLB003</p>
+    </div>
+</div>
+
+    <br>
+   <p><strong>Item #:</strong> 
+        <span class="glitch-wrapper">
+          <span class="text-main">SLB003</span>
+          <span class="text-secret">ตราบใดที่ยังมีใครจำภาพนั้นได้ เธอจะยังไม่หายไป</span>
+        </span>
+    </p>
+<P><strong>คลาสวัตถุ:</strong> Apollyon (Provisional)</P>
+<br>
+<p><strong>มาตรการกักกัน:</strong> slb-003 จะต้องอยู่ในกล่องกักกันที่ปิดสนิทห้ามให้พนักงานคนใดเข้าไปเว้นแต่จะได้รับอนุญาต เมื่อมีใครที่ได้พูดคุยหรือรับถึงตัวตนของSLB003จะไม่มีใครเข้าไปจนทุกคนจะลื่มหรือได้รับยาลบความทรงจำ </p>
+<br>
+<p><strong>รายละเอียด:</strong>████████████████████████████████████████████████████</p>
+<script src="slb003.js"></script>
+<script src="ค้นหาเมนู.js"> </script>
+<script src="ค้นหาเมนู.js"></script>
+</body>

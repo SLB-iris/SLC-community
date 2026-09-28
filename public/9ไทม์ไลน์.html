@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S.L.B</title>
+         <style>
+         :root {
+    --primary-color: #0a0a0a;   /* ดำ (หลัก 60%) */
+    --secondary-color: #004a99; /* น้ำเงิน (รอง 30%) */
+    --accent-color: #7b2cbf;    /* ม่วง (เน้น 10%) */
+    --text-white: #ffffff;
+    --bg-light: #f4f4f4;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+    background-color: var(--primary-color);
+    color: var(--text-white);
+    left: 40%;
+}
+.search-box {
+    position: relative;
+    width: 400px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 1px solid var(--secondary-color);
+    background: #000;
+    color: white;
+}
+
+.search-box i {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    color: var(--secondary-color);
+}
+.top-header {
+    background-color: #1a1a1a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    border-bottom: 2px solid var(--secondary-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.side-nav-triggers {
+    background: #222;
+    padding: 10px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.menu-trigger {
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    border-right: 3px solid var(--secondary-color);
+}
+
+.sidebar a {
+    padding: 15px 32px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+.sidebar a:hover {
+    color: var(--text-white);
+    background: var(--secondary-color);
+}
+
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+}
+.container {
+    max-width: 1200px;  /* 1. กำหนดความกว้างสูงสุดที่ต้องการ (เช่น 1200px หรือ 1400px) */
+    margin: 0 auto;     /* 2. จัดกึ่งกลาง: บน-ล่าง 0, ซ้าย-ขวา auto */
+    width: 90%;         /* 3. เผื่อพื้นที่ขอบไว้ 10% สำหรับหน้าจอที่เล็กกว่า 1200px */
+    padding: 20px 0;    /* ปรับ padding บน-ล่างตามความเหมาะสม */
+}
+.btn-signin {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.user-icon {
+    font-size: 1.5rem;
+    vertical-align: middle;
+}
+.logo {
+    height: 100%;       /* ให้กล่องโลโก้สูงเท่ากับ Header */
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 60px;       /* ปรับตัวเลขนี้ตามความเหมาะสมของรูปคุณ (เช่น 40px - 80px) */
+    width: auto;        /* สัดส่วนไม่เพี้ยน */
+    transition: 0.3s;   /* ใส่เพื่อให้เวลาเอาเมาส์วางแล้วสมูท */
+}
+
+.logo img:hover {
+    transform: scale(1.1); /* ขยายใหญ่ขึ้นเล็กน้อยเมื่อเอาเมาส์วาง */
+}
+.category-group button {
+    background: transparent;
+    color: white;
+    border: 1px solid #444;
+    padding: 5px 15px;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.category-group button:hover, .category-group button.highlight {
+    background: var(--accent-color);
+}
+</style>
+    <link rel="stylesheet" href="ค้นหา.css">
+    <link rel="stylesheet" href="slb.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="top-header">
+         <a href="index.html">
+        <div class="header-left">
+            <div class="logo">
+                <img src="รูป/โลโก้.png" alt="S.L.B Logo"> </div>
+        </div>
+        </a>
+            <div class="header-center">
+                <div class="search-box">
+                <input type="text" id="searchInput" placeholder="ค้นหาข้อมูล S.L.B..." autocomplete="off">
+                <i class="fas fa-search"></i>
+                <div id="resultsList" class="search-results"></div>
+            </div>
+        </div>
+        <div class="header-right">
+            <button class="btn-signin">Sign In</button>
+            <i class="fas fa-user-circle user-icon"></i>
+        </div>
+    </header>
+
+    <nav class="side-nav-triggers">
+        <button onclick="toggleLeftMenu()" class="menu-trigger"><i class="fas fa-bars"></i> เมนูหลัก</button>
+        <div class="category-group">
+           <a href="7ระดับ.html"><button>ระดับ</button></a>
+            <a href="8ประเภท.html"><button>ประเภท</button></a>
+        </div>
+    </nav>
+
+    <div id="leftMenu" class="sidebar">
+        <a href="index.html"><i class="fas fa-home"></i> หน้าหลัก</a>
+        <a href="2เนื้อหลัก.html"><i class="fas fa-database"></i> เนื้อหาหลัก</a>
+        <a href="3คำอธิบายเนื้อหา.html"><i class="fas fa-file-alt"></i> คำอธิบายเนื้อหา</a>
+        <a href="4เกี่ยวกับเรา.html"><i class="fas fa-info-circle"></i> เกี่ยวกับเรา</a>
+        <a href="5เนื้อหาเสริม.html"><i class="fas fa-plus-square"></i> เนื้อหาเสริม</a>
+        <a href="6ติดต่อเรา.html"><i class="fas fa-envelope"></i> ติดต่อเรา</a>
+    </div>
+    </div>
+
+    <main class="container">
+    <script>
+    function toggleLeftMenu() {
+        const menu = document.getElementById("leftMenu");
+        // เช็คว่าเมนูเปิดอยู่หรือเปล่า ถ้ากว้าง 0 หรือยังไม่ได้ตั้งค่า ให้ขยายเป็น 250px
+        if (menu.style.width === "250px") {
+            menu.style.width = "0";
+        } else {
+            menu.style.width = "250px";
+        }
+    }
+</script>
+</body>
+    <p>สถาบันก่อนในปี██████ หลังจากได้ก่อตั้งไซร์12</p>
+<h1 id="toc0"><span>ปี 2018</span></h1>
+<p>การกัก SLB-001</p>
+<h2 id="toc1"><span>ปี 2020</span></h2>
+<p>เกืด</p>
+<p>หากต้องการดูรายการระดับวัตถุ Safe และบทความที่ใช้คลาสเหล่านี้ที่ได้รับการแปลแล้วให้ <a href="http://scp-th.wikidot.com/system:page-tags/tag/safe">คลิกที่นี่</a></p>
+<h2 id="toc2"><span>Euclid</span></h2>
+<p>วัตถุระดับ Euclid เป็นวัตถุที่ต้องใช้ทรัพยากรในการกักกันค่อนข้างมากถึงจะสามารถกักกันได้อย่างสมบูรณ์ หรือมาตราการกักกันในปัจจุบันยังมีความเสี่ยงที่จะเกิดการกักกันรั่วไหลอยู่ มักเป็นเพราะสถาบันยังไม่เข้าใจความสามารถของวัตถุเท่าไหร่นักหรือตัววัตถุมีพฤติกรรมที่คาดเดายาก ระดับ Euclid มีนิยามที่ค่อนข้างกว้าง ถ้าไม่มั่นใจว่าวัตถุควรจัดอยู่ในระดับไหน แนะนำให้ใช้ระดับนี้</p>
+<p>ขอแนะนำว่าวัตถุที่ <a href="/system:page-tags/tag/autonomous">ทำงานได้เอง</a> หรือ <a href="/system:page-tags/tag/sapient">มีสติปัญญา</a> มักจะถูกจัดอยู่ในระดับนี้เพราะวัตถุมีความนึกคิดเป็นของตนเองทำให้มีพฤติกรรมที่ไม่แน่นอน</p>
+<p>หากต้องการดูรายการระดับวัตถุ Euclid และบทความที่ใช้คลาสเหล่านี้ที่ได้รับการแปลแล้วให้ <a href="http://scp-th.wikidot.com/system:page-tags/tag/euclid">คลิกที่นี่</a></p>
+<h2 id="toc3"><span>Keter</span></h2>
+<p>วัตถุระดับ Keter เป็นวัตถุที่ยากจะกักกัน เนื่องจากวิธีการกักกันมีความซับซ้อนและสิ้นเปลืองทรัพยากรมาก หรือการกักกันวัตถุนั้นไม่มีประสิทธิภาพเป็นผลจากการที่ทางสถาบันยังไม่เข้าใจความสามารถของวัตถุหรือยังไม่มีเทคโนโลยีที่ดีพอสำหรับกักกันหรือต่อกรกับวัตถุ วัตถุระดับ Keter ไม่จำเป็นต้องเป็นอันตรายแค่การกักกันมันยุ่งยากและสิ้นเปลือง</p>
+<p>หากต้องการดูรายการระดับวัตถุ Keter และบทความที่ใช้คลาสเหล่านี้ที่ได้รับการแปลแล้วให้ <a href="http://scp-th.wikidot.com/system:page-tags/tag/keter">คลิกที่นี่</a></p>
+<h2 id="toc4"><span>Thaumiel</span></h2>
+<p>วัตถุระดับ Thaumiel เป็นวัตถุที่ทางสถาบันใช้เพื่อกักกัน SCPs ตนอื่น ๆ โดยเฉพาะ การมีอยู่ของวัตถุระดับนี้ถือเป็นความลับขั้นสุดยอดของสถาบัน ทั้งที่อยู่ ความสามารถ และสถานะปัจจุบันของวัตถุ นอกจากในสภา O5 แล้วก็มีเพียงสมาชิกภายในองค์กรรู้กันเพียงไม่กี่คน</p>
+<p>หากต้องการดูรายการระดับวัตถุ Thaumiel และบทความที่ใช้คลาสเหล่านี้ที่ได้รับการแปลแล้วให้ <a href="http://scp-th.wikidot.com/system:page-tags/tag/thaumial">คลิกที่นี่</a></p>
+<h2 id="toc5"><span>Neutralized</span></h2>
+<p>เป็นวัตถุที่ถูกทำให้หมดสภาพคือไม่มีความผิดปกติอีกต่อไป อาจเป็นเพราะถูกทำลายหรือทำให้เสียหายโดยตั้งใจหรือไม่ได้ตั้งใจ หรือตัววัตถุเสียหายเอง</p>
+<p>หากต้องการดูรายการระดับวัตถุ Neutralized และบทความที่ใช้คลาสเหล่านี้ที่ได้รับการแปลแล้วให้ <a href="http://scp-th.wikidot.com/system:page-tags/tag/neutralized">คลิกที่นี่</a></p>
+<h2 id="toc6"><span>Decommissioned</span></h2>
+<p>Decommissioned SCPs คือวัตถุที่ถูกองค์กร SCP ทำลายหรือลบล้างคุณสมบัติที่ผิดปกติออกโดยเจตนา เนื่องจากสถาบันมักจะพยายามกักกันวัตถุที่ผิดปกติมากกว่าที่จะต่อต้าน ระดับวัตถุนี้จึงถูกใช้เมื่อไม่สามารถกักกันความผิดปกติได้ทั้งหมดเท่านั้น หรือเมื่อต้องใช้ทรัพยากรมากเกินไปเพื่อรักษาความผิดปกติในการกักกัน เพื่อหลีกเลี่ยงการสูญเสียที่ไม่จำเป็น ความผิดปกติในการรื้อถอนต้องได้รับอนุญาตจากหน่วยงานที่มีอำนาจสูงกว่า เช่น สภา O5, คณะกรรมการจริยธรรม หรือ <a class="newpage" href="/decom-dept-hub">แผนกเพิกถอน</a></p>
+<p>หากต้องการดูรายการระดับวัตถุ Decommissioned และบทความที่ใช้คลาสเหล่านี้ที่ได้รับการแปลแล้วให้ <a href="http://scp-th.wikidot.com/system:page-tags/tag/decommissioned">คลิกที่นี่</a></p>
+<h2 id="toc7"><span>Apollyon</span></h2>
+<p>SCP ระดับ Apollyon เป็นวัตถุที่ไม่สามารถกักกันไว้ได้ และคาดว่าจะรั่วไหลจากการกักกันในเร็วๆ นี้ หรือสถานการณ์อื่นที่คล้ายคลึงกัน ความผิดปกติดังกล่าวมักจะเกี่ยวข้องกับภัยคุกคามระดับโลกหรือสถานการณ์ K-Class บางอย่าง และต้องใช้ความพยายามอย่างมากจากสถาบันในการจัดการ</p>
+<p>หากต้องการดูรายการระดับวัตถุ Apollyon และบทความที่ใช้คลาสเหล่านี้ที่ได้รับการแปลแล้วให้ <a href="http://scp-th.wikidot.com/system:page-tags/tag/apollyon">คลิกที่นี่</a></p>
+<h2 id="toc8"><span>Archon</span></h2>
+<p>SCP ระดับ Archon เป็นวัตถุที่อาจกักกันได้ในทางทฤษฎี แต่ควรปล่อยทิ้งไว้โดยไม่มีการกักกันด้วยเหตุผลบางประการ SCP ระดับ Archon อาจเป็นส่วนหนึ่งของความเป็นจริงที่สอดคล้องกันซึ่งยากต่อการกักกันอย่างสมบูรณ์หรืออาจมีผลกระทบเชิงลบหากถูกกักกัน SCP เหล่านี้ไม่สามารถกักกันได้—ลักษณะเฉพาะของระดับนี้คือสถาบันเลือกที่จะไม่กักกันวัตถุนั้น</p>
+<p>หากต้องการดูรายการระดับวัตถุ Archon และบทความที่ใช้คลาสเหล่านี้ที่ได้รับการแปลแล้วให้ <a href="http://scp-th.wikidot.com/system:page-tags/tag/archon">คลิกที่นี่</a></p>
+<h1 id="toc9"><span>ระดับวัตถุที่ไม่เป็นมาตรฐาน</span></h1>
+<p>ระดับวัตถุต่อไปนี้เป็นระดับเพิ่มเติมที่มาจากการจัดระดับวัตถุหลัก</p>
+<h2 id="toc10"><span>Explained</span></h2>
+<p><a href="/scp-ex">Explained</a> เป็นระดับของวัตถุที่ถูกศึกษามามากพอจนสามารถอธิบายลักษณะของวัตถุได้ด้วยหลักการทางวิทยาศาสตร์จึงไม่ถือว่ามีความผิดปกติอีกต่อไป หรือปรากฎการณ์ที่ถูกบิดเบือนข้อมูลจนทำให้เข้าใจว่าเป็นความผิดปกติหรือถูกบิดเบือนด้วยความเชื่อท้องถิ่น</p>
+<p>หากต้องการดูรายการระดับวัตถุ Explained และบทความที่ใช้คลาสเหล่านี้ที่ได้รับการแปลแล้วให้ <a href="http://scp-th.wikidot.com/system:page-tags/tag/explained">คลิกที่นี่</a></p>
+<h2 id="toc11"><span>Pending</span></h2>
+<p>บทความ SCP ที่ยังไม่ได้ถูกจำแนกระดับวัตถุโดยอาจถูกระบุว่า Pending ข้อมูลนี้ใช้เพื่อระบุว่าสถาบันกำลังค้นคว้าวัตถุนั้น แต่ก็ยังไม่มีข้อมูลที่เพียงพอที่จะจำแนกระดับของวัตถุได้ นี่เป็นการตัดสินใจโดยเจตนาเพื่อเน้นย้ำว่าเรื่องราวกำลังดำเนินอยู่ โดยมันไม่เหมือนกับผู้เขียนที่ไม่รู้ว่าจะกำหนดวัตถุให้อยู่ในระดับใด!</p>
+<p>หากต้องการดูรายการระดับวัตถุ Pending และบทความที่ใช้คลาสเหล่านี้ที่ได้รับการแปลแล้วให้ <a href="http://scp-th.wikidot.com/system:page-tags/tag/pending">คลิกที่นี่</a></p>
+<h2 id="toc12"><span>Esoteric/Narrative Classes</span></h2>
+<p>ระดับ Esoteric หรือระดับบรรยาย (Narrative) เป็นระดับสำหรับวัตถุที่ไม่ตรงกับระดับใด ๆ ที่กล่าวมาข้างต้น ระดับนี้จะถูกสร้างขึ้นมาใหม่เพื่อใช้กับ SCP ตัวใดตัวหนึ่งและส่วนใหญ่จะถูกใช้เพียงครั้งเดียว แนะนำว่าการเขียน SCP ควรใช้ระดับหลักที่มีอยู่แล้วมากกว่า ถ้าจะสร้างระดับใหม่ควรจะมีเหตุผลรองรับในบทความว่าทำไมถึงไม่ใช้ระดับที่มีอยู่แล้ว</p>
+<p>หากต้องการดูรายการระดับวัตถุ Esoteric และบทความที่ใช้คลาสเหล่านี้ที่ได้รับการแปลแล้วให้ <a class="newpage" href="/esoteric-classes-complete-list">คลิกที่นี่</a></p>
+<h1 id="toc13"><span>คำถามที่พบบ่อยเกี่ยวกับระดับของวัตถุ</span></h1>    
+</div>
+</html>

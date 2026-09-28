@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S.L.B</title>
+    <link rel="stylesheet" href="slb.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="top-header">
+         <a href="homepage.html">
+        <div class="header-left">
+            <div class="logo">
+                <img src="รูป/โลโก้.png" alt="S.L.B Logo"> </div>
+        </div>
+        </a>
+        <div class="header-center">
+            <div class="search-box">
+                <input type="text" placeholder="ค้นหาข้อมูล S.L.B...">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+        <div class="header-right">
+            <button class="btn-signin">Sign In</button>
+            <i class="fas fa-user-circle user-icon"></i>
+        </div>
+    </header>
+
+    <nav class="side-nav-triggers">
+        <button onclick="toggleLeftMenu()" class="menu-trigger"><i class="fas fa-bars"></i> เมนูหลัก</button>
+        <div class="category-group">
+            <button>ระดับ</button>
+            <button>ประเภท</button>
+            <button>ไทม์ไลน์</button>
+            <button>มินิเกม</button>
+            <button>ใหม่ล่าสุด</button>
+        </div>
+    </nav>
+
+    <div id="leftMenu" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="toggleLeftMenu()">&times;</a>
+        <a href="#"><i class="fas fa-home"></i> หน้าหลัก</a>
+        <a href="#"><i class="fas fa-database"></i> เนื้อหาหลัก</a>
+        <a href="#"><i class="fas fa-file-alt"></i> คำอธิบายเนื้อหา</a>
+        <a href="#"><i class="fas fa-info-circle"></i> เกี่ยวกับเรา</a>
+        <a href="#"><i class="fas fa-plus-square"></i> เนื้อหาเสริม</a>
+        <a href="#"><i class="fas fa-envelope"></i> ติดต่อเรา</a>
+    </div>
+
+    <main class="container">
+    <script>
+    function toggleLeftMenu() {
+        const menu = document.getElementById("leftMenu");
+        // เช็คว่าเมนูเปิดอยู่หรือเปล่า ถ้ากว้าง 0 หรือยังไม่ได้ตั้งค่า ให้ขยายเป็น 250px
+        if (menu.style.width === "250px") {
+            menu.style.width = "0";
+        } else {
+            menu.style.width = "250px";
+        }
+    }
+</script>
+</body>
+        

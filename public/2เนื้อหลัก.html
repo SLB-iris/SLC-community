@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S.L.B</title>
+    <link rel="stylesheet" href="ค้นหา.css">
+    <link rel="stylesheet" href="2เนื้อหลัก.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="top-header">
+         <a href="index.html">
+        <div class="header-left">
+            <div class="logo">
+                <img src="รูป/โลโก้.png" alt="S.L.B Logo"> </div>
+        </div>
+        </a>
+            <div class="header-center">
+                <div class="search-box">
+                <input type="text" id="searchInput" placeholder="ค้นหาข้อมูล S.L.B..." autocomplete="off">
+                <i class="fas fa-search"></i>
+                <div id="resultsList" class="search-results"></div>
+            </div>
+        </div>
+        <div class="header-right">
+            <button class="btn-signin">Sign In</button>
+            <i class="fas fa-user-circle user-icon"></i>
+        </div>
+    </header>
+
+    <nav class="side-nav-triggers">
+        <button onclick="toggleLeftMenu()" class="menu-trigger"><i class="fas fa-bars"></i> เมนูหลัก</button>
+        <div class="category-group">
+           <a href="7ระดับ.html"><button>ระดับ</button></a>
+            <a href="8ประเภท.html"><button>ประเภท</button></a>
+        </div>
+    </nav>
+
+    <div id="leftMenu" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="toggleLeftMenu()">&times;</a>
+        <a href="index.html"><i class="fas fa-home"></i> หน้าหลัก</a>
+        <a href="2เนื้อหลัก.html"><i class="fas fa-database"></i> เนื้อหาหลัก</a>
+        <a href="3คำอธิบายเนื้อหา.html"><i class="fas fa-file-alt"></i> คำอธิบายเนื้อหา</a>
+        <a href="4เกี่ยวกับเรา.html"><i class="fas fa-info-circle"></i> เกี่ยวกับเรา</a>
+        <a href="5เนื้อหาเสริม.html"><i class="fas fa-plus-square"></i> เนื้อหาเสริม</a>
+        <a href="6ติดต่อเรา.html"><i class="fas fa-envelope"></i> ติดต่อเรา</a>
+    </div>
+
+    <main class="container">
+    <script>
+    function toggleLeftMenu() {
+        const menu = document.getElementById("leftMenu");
+        // เช็คว่าเมนูเปิดอยู่หรือเปล่า ถ้ากว้าง 0 หรือยังไม่ได้ตั้งค่า ให้ขยายเป็น 250px
+        if (menu.style.width === "250px") {
+            menu.style.width = "0";
+        } else {
+            menu.style.width = "250px";
+        }
+    }
+</script>
+
+
+<div class="container">
+    <a href="slb001.html">
+    <div class="item">
+        <div class="layer">
+            <h3>SLB 001</h3>
+            <P>
+                SLB001 ไอริส ทอมป์สัน
+            </P>
+            <span><i class="fa-solid fa-arrow-right-dots"></i></span>
+        </div>
+    </div>
+    </a>
+
+    <a href="slb002.html">
+    <div class="item">
+        <div class="layer">
+            <h3>SLB 002</h3>
+            <P>
+                SLB002 เหตุการที่ถูกทิ้ง
+            </P>
+            <span><i class="fa-solid fa-arrow-right-dots"></i></span>
+        </div>
+    </div>
+    </a>
+
+    <a href="slb003.html">
+    <div class="item">
+        <div class="layer">
+            <h3>SLB 003</h3>
+            <P>
+                SLB003 แคทอินเดอะบ็อกซ์(ภายในสักวันหนึ่ง)
+            </P>
+            <span><i class="fa-solid fa-arrow-right-dots"></i></span>
+        </div>
+    </div>
+    </a>
+
+    <a href="slb004.html">
+    <div class="item">
+        <div class="layer">
+            <h3>SLB 004</h3>
+            <P>
+                SLB004 ความแปรผัน
+            </P>
+            <span><i class="fa-solid fa-arrow-right-dots"></i></span>
+        </div>
+    </div>
+    </a>
+
+    <a href="slb005.html">
+    <div class="item">
+        <div class="layer">
+            <h3>SLB 005</h3>
+            <P>
+                SLB005 หัวใจดวงที่ 99
+            </P>
+            <span><i class="fa-solid fa-arrow-right-dots"></i></span>
+        </div>
+    </div>
+    </a>
+
+    <a href="slb006.html">
+    <div class="item">
+        <div class="layer">
+            <h3>SLB 006</h3>
+            <P>
+                SLB006 ยามหลับฝันก่อนผีเสื้อโบยบิน
+            </P>
+            <span><i class="fa-solid fa-arrow-right-dots"></i></span>
+        </div>
+    </div>
+    </a>
+
+     <a href="slb007.html">
+    <div class="item">
+        <div class="layer">
+            <h3>SLB 007</h3>
+            <P>
+                SLB007 มนุษย์เพื่อมนุษย์
+            </P>
+            <span><i class="fa-solid fa-arrow-right-dots"></i></span>
+        </div>
+    </div>
+    </a>
+
+    <a href="slb008.html">
+    <div class="item">
+        <div class="layer">
+            <h3>SLB 008</h3>
+            <P>
+                SLB008 เรดรูม
+            </P>
+            <span><i class="fa-solid fa-arrow-right-dots"></i></span>
+        </div>
+    </div>
+    </a>
+
+    <a href="slb009.html">
+    <div class="item">
+        <div class="layer">
+            <h3>SLB 009</h3>
+            <P>
+                SLB009 บทที่สุดท้าย
+            </P>
+            <span><i class="fa-solid fa-arrow-right-dots"></i></span>
+        </div>
+    </div>
+    </a>
+
+    <a href="slb010.html">
+    <div class="item">
+        <div class="layer">
+            <h3>SLB 010</h3>
+            <P>
+                SLB010 เดอะเวิลด์ออฟบิวตี้ฟูล
+            </P>
+            <span><i class="fa-solid fa-arrow-right-dots"></i></span>
+        </div>
+    </div>
+    </a>
+
+</div>
+
+<script src="ค้นหาเมนู.js"></script>
+</body>
+        

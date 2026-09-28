@@ -1,0 +1,354 @@
+:root {
+    --primary-color: #0a0a0a;   /* ดำ (หลัก 60%) */
+    --secondary-color: #004a99; /* น้ำเงิน (รอง 30%) */
+    --accent-color: #7b2cbf;    /* ม่วง (เน้น 10%) */
+    --text-white: #ffffff;
+    --bg-light: #f4f4f4;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+    background-color: var(--primary-color);
+    color: var(--text-white);
+    left: 40%;
+}
+.search-box {
+    position: relative;
+    width: 400px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 1px solid var(--secondary-color);
+    background: #000;
+    color: white;
+}
+
+.search-box i {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    color: var(--secondary-color);
+}
+.top-header {
+    background-color: #1a1a1a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    border-bottom: 2px solid var(--secondary-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.side-nav-triggers {
+    background: #222;
+    padding: 10px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.menu-trigger {
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    border-right: 3px solid var(--secondary-color);
+}
+
+.sidebar a {
+    padding: 15px 32px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    color: var(--text-white);
+    background: var(--secondary-color);
+}
+
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+}
+.container {
+    max-width: 1200px;  /* 1. กำหนดความกว้างสูงสุดที่ต้องการ (เช่น 1200px หรือ 1400px) */
+    margin: 0 auto;     /* 2. จัดกึ่งกลาง: บน-ล่าง 0, ซ้าย-ขวา auto */
+    width: 90%;         /* 3. เผื่อพื้นที่ขอบไว้ 10% สำหรับหน้าจอที่เล็กกว่า 1200px */
+    padding: 20px 0;    /* ปรับ padding บน-ล่างตามความเหมาะสม */
+}
+.btn-signin {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.user-icon {
+    font-size: 1.5rem;
+    vertical-align: middle;
+}
+.logo {
+    height: 100%;       /* ให้กล่องโลโก้สูงเท่ากับ Header */
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 60px;       /* ปรับตัวเลขนี้ตามความเหมาะสมของรูปคุณ (เช่น 40px - 80px) */
+    width: auto;        /* สัดส่วนไม่เพี้ยน */
+    transition: 0.3s;   /* ใส่เพื่อให้เวลาเอาเมาส์วางแล้วสมูท */
+}
+
+.logo img:hover {
+    transform: scale(1.1); /* ขยายใหญ่ขึ้นเล็กน้อยเมื่อเอาเมาส์วาง */
+}
+.category-group button {
+    background: transparent;
+    color: white;
+    border: 1px solid #444;
+    padding: 5px 15px;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.category-group button:hover, .category-group button.highlight {
+    background: var(--accent-color);
+}
+/* --- สไตล์กล่องรูปภาพแบบยาว--- */
+
+.slbรูป {
+    /* เปลี่ยนพื้นหลังเป็นสีขาว/เทาอ่อนตามภาพแรก */
+    background-color: #f4f4f4; 
+    border: 1px solid #ccc;
+    padding: 0; /* เว้นระยะห่างรอบๆ รูป */
+    display: flex;   /* ใช้ flex เพื่อคุมการจัดวางข้างใน */
+    flex-direction: column;  /* เรียงจากบนลงล่าง */
+    overflow: hidden;  /*กันรูปส่วนเกินล้นออกจากกรอบหน้าต่าง */
+    margin: 20px 0; /* เว้นระยะบนล่าง และจัดกลางแนวนอน */
+    width: 100%;
+    box-sizing: border-box;
+    width: 80%; /* หรือปรับตามความกว้างที่ต้องการ */
+}
+
+
+
+.กรอบยาว {
+    float: none !important; /* ปิดการลอยขวา */
+    margin-left: auto;
+    margin-right: auto;
+    clear: both;
+    width: 100% !important;
+}
+
+.scp-image-caption {
+    /* เอาสีม่วงออก ให้เป็นพื้นหลังใสเห็นสีพื้นกล่อง */
+    color: lab(100% 0.01 -0.01) !important; /* ตัวหนังสือสีเข้มเพื่อให้อ่านง่ายบนพื้นขาว */
+    text-align: center;
+    padding-top: 10px 0 !important;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    font-weight: bold;
+    border-top: 1px solid #ddd; /* เส้นขีดคั่นจางๆ ใต้รูป */
+    background: hsl(249, 99%, 26%);
+}
+
+/* ลบ margin ของ <p> ใน caption ออกเพื่อให้กึ่งกลางเป๊ะ */
+.scp-image-caption p {
+    margin: 0 !important;
+    line-height: 2; 
+    display: inline-block; /* ช่วยให้การคำนวณตำแหน่งแม่นยำขึ้น */
+}
+/* --- สไตล์กล่องรูปภาพแบบยาว จบ--- */
+
+.glitch-wrapper {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    min-width: 100px; /* กันพื้นที่ไว้ไม่ให้ข้อความอื่นขยับเวลาคำยาวโผล่มา */
+}
+
+/* --- ข้อความหลัก: SLB003 (อยู่ 4 วิ จาก 14 วิ) --- */
+.text-main {
+    display: inline-block;
+    animation: cycle-main 14s infinite;
+}
+
+@keyframes cycle-main {
+    0%, 28% { opacity: 1; visibility: visible; } /* 0 - 4 วินาทีแรก */
+    29%, 100% { opacity: 0; visibility: hidden; } /* หายยาวจนจบ 14 วินาที */
+}
+
+/* --- ข้อความลับ: ตราบใดที่ยังมีใคร... (อยู่ 10 วิ จาก 14 วิ) --- */
+.text-secret {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap; /* ไม่ให้ขึ้นบรรทัดใหม่ */
+    color: #ff4444;
+    opacity: 0;
+    visibility: hidden;
+    animation: cycle-secret 14s infinite;
+}
+
+@keyframes cycle-secret {
+    0%, 28% { opacity: 0; visibility: hidden; }  /* 4 วินาทีแรกต้องไม่เห็น */
+    29%, 100% { opacity: 1; visibility: visible; } /* 10 วินาทีหลังแสดงจนจบ */
+}
+
+/* --- สไตล์กล่องเกม--- */
+/* แถบหัวหน้าต่างด้านบน */
+.window-header {
+    background: var(--secondary-color);
+    color: white;
+    padding: 5px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+.window-controls span {
+    margin-left: 10px;
+    cursor: pointer;
+    font-family: monospace;
+}
+
+/* --- สไตล์กล่องเกม จบ--- */
+
+/* --- สไตล์รูป --- */
+/* 1. กล่องครอบ: ไม่ต้องใส่ความสูง ให้ลูกข้างในเป็นตัวดัน */
+.screen-content {
+    position: relative; 
+    width: 100%;
+    background-color: #000;
+    overflow: hidden;
+    display: block; /* เปลี่ยนจาก flex เป็น block เพื่อความชัวร์ */
+    line-height: 0;
+}
+
+/* 2. รูปพื้นหลัง (ห้อง): ห้ามใช้ absolute */
+.bg-image {
+    width: 100% !important; /* ยืดเต็มความกว้างกล่อง */
+    height: auto !important;  /* ให้ความสูงปรับตามสัดส่วนรูปจริง */
+    display: block;
+    position: relative;     /* เป็นตัวฐานให้กล่องแม่ยืดตาม */
+    z-index: 1;
+}
+
+/* 3. รูปตัวละคร: ใช้ absolute เพื่อลอยทับรูปห้อง */
+.character-img {
+    position: absolute !important; 
+    bottom: 0;              /* วางเท้าไว้ขอบล่างของรูปห้องพอดี */
+    left: 50%;
+    transform: translateX(-50%); /* จัดกึ่งกลางเป๊ะ */
+    
+    /* ปรับขนาดตัวละครเทียบกับความสูงของห้อง */
+    height: 90% !important;  /* ให้ตัวละครสูง 90% ของความสูงห้อง */
+    width: auto !important;
+    
+    z-index: 10;
+    pointer-events: none;
+    filter: drop-shadow(0 0 15px rgba(0, 100, 255, 0.4));
+}
+/* --- สไตล์รูป จบ--- */
+
+/* --- กรอบข้อความด้านล่าง --- */
+.dialogue-box {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    height: 100px;
+    background: rgba(0, 10, 30, 0.85); /* สีน้ำเงินเข้มโปร่งแสง */
+    border: 2px solid var(--secondary-color);
+    border-left: 5px solid var(--secondary-color); /* เส้นขอบหนาด้านซ้ายแบบสไตล์ UI */
+    z-index: 30; /* อยู่หน้าสุด */
+    padding: 15px;
+    color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.name-tag {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--secondary-color);
+    padding: 15px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    clip-path: polygon(0 0, 90% 0, 100% 100%, 0% 100%); /* ทรงเฉียงๆ แบบล้ำสมัย */
+}
+
+.dialogue-text {
+    font-size: 16px;
+    line-height: 1.5;
+    text-shadow: 1px 1px 2px black;
+}
+
+/* --- กรอบตัวเลือก (ด้านขวา) --- */
+.choices-container {
+    position: absolute;
+    bottom: 120px; /* ให้อยู่เหนือกรอบข้อความ */
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 35;
+}
+
+.choice-btn {
+    background: rgba(0, 74, 153, 0.2);
+    color: white;
+    border: 1px solid var(--secondary-color);
+    padding: 8px 25px;
+    cursor: pointer;
+    text-align: right;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.choice-btn:hover {
+    background: var(--secondary-color);
+    padding-right: 35px; /* เลื่อนตัวอักษรเวลาชี้ */
+    box-shadow: -5px 0 10px var(--secondary-color);
+}
+
+/*บทพูดและตัวเลือก*/
+#choices-container {
+    display: none; /* เริ่มต้นซ่อน */
+    flex-direction: column;
+    gap: 10px;
+}

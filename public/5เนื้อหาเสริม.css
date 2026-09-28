@@ -1,0 +1,105 @@
+.parent {
+display: flex;
+    flex-direction: column;
+    align-items: center; /* จัดให้ Card อยู่กลางหน้าจอ */
+    padding: 20px;
+}
+    
+.หัวข้อ {
+    grid-column: span 3 / span 3;
+    grid-column-start: 2;
+    grid-row-start: 1;
+}
+.หัวข้อ p {
+    font-size: 2em;
+    text-align: center;
+    margin: 0;
+}
+/* --- จุดปรับขนาดหลักอยู่ที่นี่ --- */
+.main-card {
+    width: 800px;        /* 1. ปรับความกว้างตรงนี้ */
+    overflow: hidden;    /* กันส่วนข้างในล้นขอบโค้ง */
+    border-radius: 30px; /* ทำขอบโค้งทั้งก้อน */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* เพิ่มเงาให้ดูมีมิติ */
+}
+
+/* ส่วนบน: สีขาว */
+.card-top {
+    background: #fff;
+    height: 200px;       /* 2. ปรับความสูงส่วนรูปตรงนี้ */
+    position: relative; /* เพื่อให้ลูกเทียบตำแหน่งได้ */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible; /* สำคัญมาก! เพื่อให้วงกลมไม่โดนตัดทิ้ง */
+}
+
+/* ส่วนล่าง: สีเทา */
+.card-bottom {
+    background: #2a2a2a;
+    height: 100px;        /* 3. ปรับความสูงส่วนข้อความตรงนี้ */
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    border-top: 3px solid var(--color-30); /* เส้นขอบน้ำเงิน 30% */
+}
+
+/* โลโก้ */
+
+.cover-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- การจัดวางข้อความ --- */
+.content-row {
+    display: flex;
+    width: 100%;
+    padding-left: 20px; /* ขยับข้อความจากขอบซ้ายตามต้องการ */
+}
+
+.text-group {
+    display: flex;
+    flex-direction: column; /* จัดให้ S.L.B อยู่บน Classified */
+}
+
+.main-title {
+    font-size: 3rem; /* ขนาด S.L.B ใหญ่พิเศษ */
+    margin: 0;
+    line-height: 1;
+    color: #fff;
+    font-weight: 900;
+}
+
+.sub-title {
+    font-size: 1rem; /* ขนาด Classified เล็กกว่า */
+    margin: 5px;
+    color: #aaa; /* ปรับสีให้จางลงเล็กน้อยเพื่อความสวยงาม */
+    font-weight: bold;
+    text-transform: uppercase;
+    border-left: 4px solid var(--color-10); 
+    padding-left: 10px;
+}
+
+.logo-overlay {
+    position: absolute;
+    right: 30px;      /* ระยะห่างจากขอบขวา */
+    bottom: -50px;    /* ให้ครึ่งหนึ่งอยู่บนรูป ครึ่งหนึ่งอยู่บนสีเทา (ปรับตามความกว้าง) */
+    width: 110px;     /* ขนาดวงกลม */
+    height: 110px;
+    background: hwb(0 14% 86%); /* พื้นหลังวงกลม */
+    border-radius: 50%; /* ทำให้เป็นวงกลม */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    border: 5px solid #2a2a2a; /* ใส่ขอบสีเดียวกับส่วนล่างให้ดูเนียน */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    overflow: hidden;
+}
+
+.logo-overlay img {
+    width: 100%;       /* ปรับขนาดโลโก้ในวงกลม */
+    height: auto;
+}

@@ -1,0 +1,42 @@
+.parent {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 8px;
+}
+    
+.โลโก้ใหญ่ {
+    grid-column: span 3 / span 3;
+    grid-column-start: 2;
+    display: flex;            /* ใช้ Flexbox ช่วยจัดระเบียบภายใน */
+    justify-content: center;   /* จัดแนวนอนให้อยู่กลาง */
+    align-items: center;       /* จัดแนวตั้งให้อยู่กลาง */
+}
+.โลโก้ใหญ่ img {
+    max-width: 100%;          /* ปรับขนาดภาพให้ไม่เกินขนาดของคอนเทนเนอร์ */
+    height: auto;             /* รักษาสัดส่วนของภาพ */
+}
+
+.ข้อความ {
+    grid-column: span 3 / span 3;
+    grid-row: span 4 / span 4;
+    grid-column-start: 2;
+    grid-row-start: 2;
+    
+}
+.ข้อความ p{
+    font-size: 24px;
+    text-align: center;
+    margin: 0; /* ลบ margin เริ่มต้นของ p */
+    text-align: left; /* บังคับให้ตัวอักษรเริ่มจากซ้าย */
+    display: flex;
+    flex-direction: column; /* เรียงข้อความลงมาเป็นตับๆ */
+    font-size: 1.2rem; /* ปรับค่านี้ (เช่น 18px, 1.5rem, หรือ 20px) */
+    line-height: 1.8;  /* ปรับระยะห่างระหว่างบรรทัดให้อ่านง่ายขึ้น */
+}
+.ข้อความ strong {
+    font-size: 2rem; /* ปรับเฉพาะหัวข้อตัวหนาให้ใหญ่กว่าปกติ */
+    color: var(--secondary-color); /* ใช้สีน้ำเงินตามธีมของคุณ */
+}
+
+        

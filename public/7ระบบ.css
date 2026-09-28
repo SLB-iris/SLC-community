@@ -1,0 +1,74 @@
+.section-title {
+    border-bottom: 3px solid var(--accent-color);
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+.content-grid {
+    display: flex;
+    flex-direction: column;   /* เรียงลงล่างก่อน */
+    flex-wrap: wrap;          /* เมื่อเต็มความสูง ให้ขึ้นคอลัมน์ใหม่ทางขวา */
+    align-content: flex-start; /* ให้แถวชิดด้านบน ไม่กระจายตัว */
+    gap: 15px;
+    height: 340px;            /* *** สำคัญที่สุด: ต้องเป็น height ไม่ใช่ margin *** */
+    margin-bottom: 50px;      /* ระยะห่างด้านล่างของส่วนนี้ */
+    overflow-x: auto;         /* เปิดสไลด์แนวนอน */
+    overflow-y: hidden;       /* ปิดสไลด์แนวตั้ง */
+    padding-bottom: 15px;
+    scroll-snap-type: x mandatory;
+}
+/* ตกแต่งแถบ Scroll bar ให้ดูเท่เข้ากับธีม */
+    .content-grid::-webkit-scrollbar { height: 6px; }
+    .content-grid::-webkit-scrollbar-track { background: #111; }
+    .content-grid::-webkit-scrollbar-thumb { background: var(--secondary-color); border-radius: 10px; }
+
+/* กำหนดขนาดของการ์ดแต่ละใบไม่ให้หดตัว */
+.content-grid a {
+    flex: 0 0 150px;          /* ความสูงของการ์ดแต่ละใบ */
+    width: 300px;            /* ความกว้างของการ์ดแต่ละใบ */
+    scroll-snap-align: start;
+    text-decoration: none;
+}
+
+.content-card {
+    width: 100%;
+    height: 100%;             /* ให้สูงเท่ากับที่ a กำหนดไว้ */
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #333;
+    border-radius: 8px;       /* เพิ่มความโค้งเล็กน้อยให้สวยงาม */
+}
+
+.content-card img {
+    height: 100%;            /* สูง 150px ตามตัวแม่ (a) */
+    width: 100%;             /* กว้าง 300px ตามตัวแม่ (a) */
+    object-fit: cover;
+}
+
+/* Hover Effect ตามเงื่อนไข */
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: -100%; /* ซ่อนไว้ทางซ้าย */
+    width: 90%;
+    height: 100%;
+    background: rgba(0, 74, 153, 0.85); /* สีน้ำเงินโปร่งแสง */
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    transition: 0.4s;
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%); /* ทรงตัดมุม */
+}
+
+.content-card:hover .card-overlay {
+    left: 0;
+}
+
+.card-name {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-left: 4px solid var(--accent-color);
+    padding-left: 10px;
+}

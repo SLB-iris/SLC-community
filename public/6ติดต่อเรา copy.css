@@ -1,0 +1,59 @@
+/* การจัดวางพื้นฐาน */
+.about-section {
+    padding: 40px 0;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* หัวข้อส่วนบน */
+.about-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.about-header i {
+    color: var(--accent-color); /* สีม่วง 10% */
+    font-size: 1.8rem;
+}
+
+.about-header h2 {
+    color: var(--text-white);
+    font-size: 1.8rem;
+}
+
+/* กล่องสีขาวสะอาดตา (ตามรูป image_702437.png) */
+.about-content-card {
+    background-color: #ffffff; /* สีขาวหลัก */
+    border-radius: 15px;
+    padding: 50px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.about-content-card h3 {
+    color: #1a1a1a; /* ตัวหนังสือสีเข้มบนพื้นขาว */
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.text-body p {
+    color: #444;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-size: 1.05rem;
+    text-align: justify;
+}
+
+/* เส้นตกแต่งสีน้ำเงิน (30%) */
+.accent-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--secondary-color); /* สีน้ำเงิน */
+}

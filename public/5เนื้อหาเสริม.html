@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S.L.B</title>
+    <style>
+         :root {
+    --primary-color: #0a0a0a;   /* ดำ (หลัก 60%) */
+    --secondary-color: #004a99; /* น้ำเงิน (รอง 30%) */
+    --accent-color: #7b2cbf;    /* ม่วง (เน้น 10%) */
+    --text-white: #ffffff;
+    --bg-light: #f4f4f4;
+        /* สัดส่วนสี 60-30-10 */
+    --color-60: #0a0a0a;   /* ดำ-เทาเข้ม (พื้นหลังหลัก) */
+    --color-30: #004a99;   /* น้ำเงิน (ปุ่ม/เส้นขอบ) */
+    --color-10: #7b2cbf;   /* ม่วง (จุดเน้นพิเศษ) */
+    --text-white: #ffffff;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+    background-color: var(--primary-color);
+    color: var(--text-white);
+    left: 40%;
+}
+.search-box {
+    position: relative;
+    width: 400px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 1px solid var(--secondary-color);
+    background: #000;
+    color: white;
+}
+
+.search-box i {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    color: var(--secondary-color);
+}
+.top-header {
+    background-color: #1a1a1a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    border-bottom: 2px solid var(--secondary-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.side-nav-triggers {
+    background: #222;
+    padding: 10px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.menu-trigger {
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    border-right: 3px solid var(--secondary-color);
+}
+
+.sidebar a {
+    padding: 15px 32px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+.sidebar a:hover {
+    color: var(--text-white);
+    background: var(--secondary-color);
+}
+
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+}
+.container {
+    max-width: 1200px;  /* 1. กำหนดความกว้างสูงสุดที่ต้องการ (เช่น 1200px หรือ 1400px) */
+    margin: 0 auto;     /* 2. จัดกึ่งกลาง: บน-ล่าง 0, ซ้าย-ขวา auto */
+    width: 90%;         /* 3. เผื่อพื้นที่ขอบไว้ 10% สำหรับหน้าจอที่เล็กกว่า 1200px */
+    padding: 20px 0;    /* ปรับ padding บน-ล่างตามความเหมาะสม */
+}
+.btn-signin {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.user-icon {
+    font-size: 1.5rem;
+    vertical-align: middle;
+}
+.logo {
+    height: 100%;       /* ให้กล่องโลโก้สูงเท่ากับ Header */
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 60px;       /* ปรับตัวเลขนี้ตามความเหมาะสมของรูปคุณ (เช่น 40px - 80px) */
+    width: auto;        /* สัดส่วนไม่เพี้ยน */
+    transition: 0.3s;   /* ใส่เพื่อให้เวลาเอาเมาส์วางแล้วสมูท */
+}
+
+.logo img:hover {
+    transform: scale(1.1); /* ขยายใหญ่ขึ้นเล็กน้อยเมื่อเอาเมาส์วาง */
+}
+.category-group button {
+    background: transparent;
+    color: white;
+    border: 1px solid #444;
+    padding: 5px 15px;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.category-group button:hover, .category-group button.highlight {
+    background: var(--accent-color);
+}
+</style>
+    <link rel="stylesheet" href="ค้นหา.css">
+    <link rel="stylesheet" href="5เนื้อหาเสริม.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="top-header">
+         <a href="index.html">
+        <div class="header-left">
+            <div class="logo">
+                <img src="รูป/โลโก้.png" alt="S.L.B Logo"> </div>
+        </div>
+        </a>
+            <div class="header-center">
+                <div class="search-box">
+                <input type="text" id="searchInput" placeholder="ค้นหาข้อมูล S.L.B..." autocomplete="off">
+                <i class="fas fa-search"></i>
+                <div id="resultsList" class="search-results"></div>
+            </div>
+        </div>
+        <div class="header-right">
+            <button class="btn-signin">Sign In</button>
+            <i class="fas fa-user-circle user-icon"></i>
+        </div>
+    </header>
+
+    <nav class="side-nav-triggers">
+        <button onclick="toggleLeftMenu()" class="menu-trigger"><i class="fas fa-bars"></i> เมนูหลัก</button>
+        <div class="category-group">
+           <a href="7ระดับ.html"><button>ระดับ</button></a>
+            <a href="8ประเภท.html"><button>ประเภท</button></a>
+        </div>
+    </nav>
+
+    <div id="leftMenu" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="toggleLeftMenu()">&times;</a>
+        <a href="index.html"><i class="fas fa-home"></i> หน้าหลัก</a>
+        <a href="2เนื้อหลัก.html"><i class="fas fa-database"></i> เนื้อหาหลัก</a>
+        <a href="3คำอธิบายเนื้อหา.html"><i class="fas fa-file-alt"></i> คำอธิบายเนื้อหา</a>
+        <a href="4เกี่ยวกับเรา.html"><i class="fas fa-info-circle"></i> เกี่ยวกับเรา</a>
+        <a href="5เนื้อหาเสริม.html"><i class="fas fa-plus-square"></i> เนื้อหาเสริม</a>
+        <a href="6ติดต่อเรา.html"><i class="fas fa-envelope"></i> ติดต่อเรา</a>
+    </div>
+
+    <main class="container">
+    <script>
+    function toggleLeftMenu() {
+        const menu = document.getElementById("leftMenu");
+        // เช็คว่าเมนูเปิดอยู่หรือเปล่า ถ้ากว้าง 0 หรือยังไม่ได้ตั้งค่า ให้ขยายเป็น 250px
+        if (menu.style.width === "250px") {
+            menu.style.width = "0";
+        } else {
+            menu.style.width = "250px";
+        }
+    }
+</script>
+
+
+<div class="parent">
+    <div class="หัวข้อ">
+        <p><strong>แคนนอน</strong></p>
+    </div>
+
+    
+    <div class="main-card">
+         <a href="6ติดต่อเรา copy.html">
+        <div class="card-top">
+            <img src="รูป/112.png" class="cover-img" alt="Background">
+            <div class="logo-overlay">
+                <img src="รูป/โลโก้.png" alt="Logo">
+            </div>
+        </div>
+   
+        <div class="card-bottom">
+            <div class="content-row">
+                <div class="text-group">
+                <h1 class="main-title">Black Diamond Billions </h1>
+                <p class="sub-title">: มาร์แชลล์ คาร์เตอร์ และดาร์ค</p>
+                </div>
+            </div>
+        </div>
+        </a>
+
+    </div>
+        <br>
+        <div class="main-card">
+        <a href="6แคนนอน.html">
+        <div class="card-top">
+            <img src="รูป/113.png" class="cover-img" alt="Background">
+            <div class="logo-overlay">
+                <img src="รูป/โลโก้.png" alt="Logo">
+            </div>
+        </div>
+        
+
+        
+        <div class="card-bottom">
+            <div class="content-row">
+                <div class="text-group">
+                <h1 class="main-title">Daybreak</h1>
+                <p class="sub-title">: พวกเราไม่สำคัญว่าคุณจะเป็นพลเรือนที่บังเอิญมาเจอเข้าในความพยายามที่จะเอาชีวิตรอดหรือไม่</p>
+                </div>
+            </div>
+        </div>
+        </a>
+
+    </div>
+</div>
+<script src="ค้นหาเมนู.js"></script>
+</body>
+</html>
+        

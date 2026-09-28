@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S.L.B</title>
+    <link rel="stylesheet" href="ค้นหา.css">
+    <link rel="stylesheet" href="1style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style101.css">
+</head>
+<body>
+
+    <header class="top-header">
+        <a href="index.html">
+        <div class="header-left">
+            <div class="logo">
+                <img src="รูป/โลโก้.png" alt="S.L.B Logo"> </div>
+        </div>
+        </a>
+            <div class="header-center">
+                <div class="search-box">
+                <input type="text" id="searchInput" placeholder="ค้นหาข้อมูล S.L.B..." autocomplete="off">
+                <i class="fas fa-search"></i>
+                <div id="resultsList" class="search-results"></div>
+            </div>
+        </div>
+        <div class="header-right">
+            <button class="btn-signin">Sign In</button>
+            <i class="fas fa-user-circle user-icon"></i>
+        </div>
+    </header>
+
+    <nav class="side-nav-triggers">
+        <button onclick="toggleLeftMenu()" class="menu-trigger"><i class="fas fa-bars"></i> เมนูหลัก</button>
+        <div class="category-group">
+           <a href="7ระดับ.html"><button>ระดับ</button></a>
+            <a href="8ประเภท.html"><button>ประเภท</button></a>
+        </div>
+    </nav>
+
+    <div id="leftMenu" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="toggleLeftMenu()">&times;</a>
+        <a href="index.html"><i class="fas fa-home"></i> หน้าหลัก</a>
+        <a href="2เนื้อหลัก.html"><i class="fas fa-database"></i> เนื้อหาหลัก</a>
+        <a href="3คำอธิบายเนื้อหา.html"><i class="fas fa-file-alt"></i> คำอธิบายเนื้อหา</a>
+        <a href="4เกี่ยวกับเรา.html"><i class="fas fa-info-circle"></i> เกี่ยวกับเรา</a>
+        <a href="5เนื้อหาเสริม.html"><i class="fas fa-plus-square"></i> เนื้อหาเสริม</a>
+        <a href="6ติดต่อเรา.html"><i class="fas fa-envelope"></i> ติดต่อเรา</a>
+    </div>
+
+    <main class="container">
+
+       
+        <section class="main-banner slider-bg">    
+           <div class="slider-track">
+                 <div class="slide" style="background-image: url('รูป/S.L.Bยินดีต้อนรับ.png');"></div>
+                  <div class="slide" style="background-image: url('รูป/S.L.Bช่วนMTF.png');"></div>
+                   <div class="slide" style="background-image: url('รูป/S.L.Bยินดีต้อนรับ.png');"></div>
+          </div>
+                <div class="banner-content">
+                 <h1>S.L.B DATABASE</h1>
+                  <p>Secure. Limit. Bifurcation.</p>
+                 </div>
+        </section>
+
+        <section class="recommended-section">
+            <h2 class="section-title">เนื้อหาแนะนำ</h2>
+            <a href="slb004.html">
+            <div class="content-grid">
+                <div class="content-card">
+                    <img src="รูป/004.jpg" alt="S.L.B Content">
+                    <div class="card-overlay">
+                        <span class="card-name">S.L.B-004: ความแปรผัน</span>
+                    </div>
+                </div>
+                </a>
+
+                <a href="slb003.html">
+                <div class="content-card">
+                    <img src="รูป/SLB003.png" alt="S.L.B Content">
+                    <div class="card-overlay">
+                        <span class="card-name">S.L.B-003: Cat in the Box</span>
+                    </div>
+                </div>
+                </a>
+               <a href="slb001.html" style="text-decoration: none; color: inherit;">
+                <div class="content-card">
+                    <img src="รูป/105.png" alt="S.L.B Content">
+                    <div class="card-overlay">
+                        <span class="card-name">S.L.B-105: iris</span>
+                    </div>
+                </div>
+                </a>
+                <a href="slb002.html" style="text-decoration: none;">
+                <div class="content-card">
+                    <img src="รูป/1730.jpg" alt="S.L.B Content">
+                    <div class="card-overlay">
+                        <span class="card-name">S.L.B-002: เหตุการที่ถูกทิ้ง</span>
+                    </div>
+                </div>
+                </a>
+            </div>
+        </section>
+
+        <section class="video-section">
+            <div class="section-header">
+                <h2 class="section-title">คลิปตัวอย่าง</h2>
+                <button class="btn-more">ดูทั้งหมด <i class="fas fa-arrow-right"></i></button>
+            </div>
+            <div class="video-grid">
+                <div class="video-item">
+                    <div class="video-placeholder">
+                        <iframe
+                        src="https://www.youtube.com/embed/xVx2jyDPinw?si=w3yRwhNIgO_criIm"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                        </iframe>
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                    <h3>บันทึกการกักกัน: วัตถุหมายเลข 173</h3>
+                </div>
+                <div class="video-item">
+                    <div class="video-placeholder">
+                        <iframe
+                        src="https://www.youtube.com/embed/MEOZkf4imaM?si=p03OZwxjIuIi6nHA"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                        </iframe>
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                    <h3>สรุปภารกิจMTF: กันกันตัวแปลหมาย096รบเ</h3>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <script>
+        function toggleLeftMenu() {
+            const menu = document.getElementById("leftMenu");
+            if (menu.style.width === "250px") {
+                menu.style.width = "0";
+            } else {
+                menu.style.width = "250px";
+            }
+        }
+    </script>
+<!-- เพิ่มก่อน card grid -->
+<section class="add-form-section">
+  <h2 class="section-title">➕ เพิ่มผลิตภัณฑ์ใหม่</h2>
+
+  <form id="add-product-form" class="add-form">
+
+    <div class="form-group">
+      <label for="product-name">ชื่อผลิตภัณฑ์ *</label>
+      <input
+        type="text"
+        id="product-name"
+        name="name"
+        required
+        placeholder="เช่น น้ำพริกเผา">
+    </div>
+
+    <div class="form-group">
+      <label for="product-producer">ผู้ผลิต/กลุ่ม *</label>
+      <input
+        type="text"
+        id="product-producer"
+        name="producer"
+        required
+        placeholder="เช่น กลุ่มแม่บ้านบ้านโคก">
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="product-price">ราคา (บาท) *</label>
+        <input
+          type="number"
+          id="product-price"
+          name="price"
+          required
+          min="1"
+          placeholder="60">
+      </div>
+
+      <div class="form-group">
+        <label for="product-category">หมวดหมู่ *</label>
+        <select id="product-category" name="category" required>
+          <option value="">-- เลือกหมวดหมู่ --</option>
+          <option value="อาหาร/เครื่องดื่ม">🍯 อาหาร/เครื่องดื่ม</option>
+          <option value="ผ้า/เครื่องแต่งกาย">👗 ผ้า/เครื่องแต่งกาย</option>
+          <option value="เครื่องประดับ/หัตถกรรม">💍 เครื่องประดับ/หัตถกรรม</option>
+          <option value="สมุนไพร/สุขภาพ">🌿 สมุนไพร/สุขภาพ</option>
+          <option value="ของใช้/ของตกแต่ง">🏺 ของใช้/ของตกแต่ง</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="product-contact">เบอร์ติดต่อ (ถ้ามี)</label>
+      <input
+        type="tel"
+        id="product-contact"
+        name="contact"
+        placeholder="081-234-5678">
+    </div>
+
+    <div class="form-group">
+    <label for="product-image">รูปภาพ (jpg, png, webp - ไม่เกิน 5MB) </label>
+    <input
+        type="file"
+        id="product-image"
+        name="image"
+        accept="image/jpeg, image/png,image/webp">
+    </div>
+
+    <button type="submit" class="submit-btn">
+      ➕ เพิ่มผลิตภัณฑ์
+    </button>
+  </form>
+</section>
+
+    <!-- CARD GRID -->
+    <section class="cards-section" id="products">
+    <h2 class="section-title">S.L.B Rise ร้อยเรียงเมืองขวัญ</h2>
+    <!-- Container ว่าง - JavaScript จะมาเติบ cards ที่นี่ -->
+    <div class="card-grid" id="products-container">
+    <!-- 35 จะเต็ม cards จาก API ตรงนี้ -->
+    </div>
+    </section>
+
+<!-- Edit Modal -->
+<div id="edit-modal" class="modal-overlay hidden">
+  <div class="modal">
+    <div class="modal-header">
+      <h2>✏️ แก้ไขผลิตภัณฑ์</h2>
+      <button class="modal-close" id="modal-close">✕</button>
+    </div>
+
+    <form id="edit-form" class="edit-form">
+      <input type="hidden" id="edit-id">
+
+      <div class="form-group">
+        <label>ชื่อผลิตภัณฑ์ *</label>
+        <input type="text" id="edit-name" required>
+      </div>
+
+      <div class="form-group">
+        <label>ผู้ผลิต/กลุ่ม *</label>
+        <input type="text" id="edit-producer" required>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>ราคา *</label>
+          <input type="number" id="edit-price" required min="1">
+        </div>
+
+        <div class="form-group">
+          <label>หมวดหมู่ *</label>
+          <select id="edit-category" required>
+            <option value="อาหาร/เครื่องดื่ม">🍯 อาหาร/เครื่องดื่ม</option>
+            <option value="ผ้า/เครื่องแต่งกาย">👗 ผ้า/เครื่องแต่งกาย</option>
+            <option value="เครื่องประดับ/หัตถกรรม">💍 เครื่องประดับ/หัตถกรรม</option>
+            <option value="สมุนไพร/สุขภาพ">🌿 สมุนไพร/สุขภาพ</option>
+            <option value="ของใช้/ของตกแต่ง">🏺 ของใช้/ของตกแต่ง</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>เบอร์ติดต่อ</label>
+        <input type="tel" id="edit-contact">
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="cancel-btn" id="cancel-btn">ยกเลิก</button>
+        <button type="submit" class="submit-btn">💾 บันทึก</button>
+      </div>
+    </form>
+  </div>
+</div>
+<script src="ค้นหาเมนู.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

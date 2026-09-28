@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S.L.B</title>
+         <style>
+         :root {
+    --primary-color: #0a0a0a;   /* ดำ (หลัก 60%) */
+    --secondary-color: #004a99; /* น้ำเงิน (รอง 30%) */
+    --accent-color: #7b2cbf;    /* ม่วง (เน้น 10%) */
+    --text-white: #ffffff;
+    --bg-light: #f4f4f4;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+    background-color: var(--primary-color);
+    color: var(--text-white);
+    left: 40%;
+}
+.search-box {
+    position: relative;
+    width: 400px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 1px solid var(--secondary-color);
+    background: #000;
+    color: white;
+}
+
+.search-box i {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    color: var(--secondary-color);
+}
+.top-header {
+    background-color: #1a1a1a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    border-bottom: 2px solid var(--secondary-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.side-nav-triggers {
+    background: #222;
+    padding: 10px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.menu-trigger {
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    border-right: 3px solid var(--secondary-color);
+}
+
+.sidebar a {
+    padding: 15px 32px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+.sidebar a:hover {
+    color: var(--text-white);
+    background: var(--secondary-color);
+}
+
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+}
+.container {
+    max-width: 1200px;  /* 1. กำหนดความกว้างสูงสุดที่ต้องการ (เช่น 1200px หรือ 1400px) */
+    margin: 0 auto;     /* 2. จัดกึ่งกลาง: บน-ล่าง 0, ซ้าย-ขวา auto */
+    width: 90%;         /* 3. เผื่อพื้นที่ขอบไว้ 10% สำหรับหน้าจอที่เล็กกว่า 1200px */
+    padding: 20px 0;    /* ปรับ padding บน-ล่างตามความเหมาะสม */
+}
+.btn-signin {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.user-icon {
+    font-size: 1.5rem;
+    vertical-align: middle;
+}
+.logo {
+    height: 100%;       /* ให้กล่องโลโก้สูงเท่ากับ Header */
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 60px;       /* ปรับตัวเลขนี้ตามความเหมาะสมของรูปคุณ (เช่น 40px - 80px) */
+    width: auto;        /* สัดส่วนไม่เพี้ยน */
+    transition: 0.3s;   /* ใส่เพื่อให้เวลาเอาเมาส์วางแล้วสมูท */
+}
+
+.logo img:hover {
+    transform: scale(1.1); /* ขยายใหญ่ขึ้นเล็กน้อยเมื่อเอาเมาส์วาง */
+}
+.category-group button {
+    background: transparent;
+    color: white;
+    border: 1px solid #444;
+    padding: 5px 15px;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.category-group button:hover, .category-group button.highlight {
+    background: var(--accent-color);
+}
+</style>
+    <link rel="stylesheet" href="ค้นหา.css">
+    <link rel="stylesheet" href="slb.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="top-header">
+         <a href="index.html">
+        <div class="header-left">
+            <div class="logo">
+                <img src="รูป/โลโก้.png" alt="S.L.B Logo"> </div>
+        </div>
+        </a>
+            <div class="header-center">
+                <div class="search-box">
+                <input type="text" id="searchInput" placeholder="ค้นหาข้อมูล S.L.B..." autocomplete="off">
+                <i class="fas fa-search"></i>
+                <div id="resultsList" class="search-results"></div>
+            </div>
+        </div>
+        <div class="header-right">
+            <button class="btn-signin">Sign In</button>
+            <i class="fas fa-user-circle user-icon"></i>
+        </div>
+    </header>
+
+    <nav class="side-nav-triggers">
+        <button onclick="toggleLeftMenu()" class="menu-trigger"><i class="fas fa-bars"></i> เมนูหลัก</button>
+        <div class="category-group">
+           <a href="7ระดับ.html"><button>ระดับ</button></a>
+            <a href="8ประเภท.html"><button>ประเภท</button></a>
+        </div>
+    </nav>
+
+    <div id="leftMenu" class="sidebar">
+        <a href="index.html"><i class="fas fa-home"></i> หน้าหลัก</a>
+        <a href="2เนื้อหลัก.html"><i class="fas fa-database"></i> เนื้อหาหลัก</a>
+        <a href="3คำอธิบายเนื้อหา.html"><i class="fas fa-file-alt"></i> คำอธิบายเนื้อหา</a>
+        <a href="4เกี่ยวกับเรา.html"><i class="fas fa-info-circle"></i> เกี่ยวกับเรา</a>
+        <a href="5เนื้อหาเสริม.html"><i class="fas fa-plus-square"></i> เนื้อหาเสริม</a>
+        <a href="6ติดต่อเรา.html"><i class="fas fa-envelope"></i> ติดต่อเรา</a>
+    </div>
+    </div>
+
+    <main class="container">
+    <script>
+    function toggleLeftMenu() {
+        const menu = document.getElementById("leftMenu");
+        // เช็คว่าเมนูเปิดอยู่หรือเปล่า ถ้ากว้าง 0 หรือยังไม่ได้ตั้งค่า ให้ขยายเป็น 250px
+        if (menu.style.width === "250px") {
+            menu.style.width = "0";
+        } else {
+            menu.style.width = "250px";
+        }
+    }
+</script>
+<br>
+    <p>
+        SLB สามารถเปลี่ยนแปลงได้โดยยังคงโครงสร้างหลักเดิมไว้ ทำให้รูปลักษณ์ยังคล้ายต้นแบบ แต่สามารถจำแนกออกได้เป็น 3 ประเภทหลัก ได้แก่
+        <ul>
+            <li> เชิงกายภาพ – รูปร่างหรือรายละเอียดภายนอกเปลี่ยน เช่น สัดส่วน อวัยวะ หรือสีผิว แต่โครงสร้างพื้นฐานยังเหมือนเดิม</li>
+            <li> เชิงตรรกะและพฤติกรรม – หน้าตาอาจเหมือนเดิม แต่ระบบความคิด การตอบสนอง และการตีความเหตุ–ผลผิดเพี้ยน</li>
+            <li> เชิงพลังหรือสถานะการดำรงอยู่ – รูปลักษณ์คล้ายเดิม แต่ระดับพลัง ความสามารถ หรือรูปแบบการมีอยู่เปลี่ยนไป</li>
+        </ul>
+    </p>
+<h1 id="toc0"><span>มนุษย์</span></h1>
+<p>หมายถึง สภาวะของความผิดปกติที่มีระดับ “ความเป็นมนุษย์” สูงอย่างชัดเจน ทั้งในเชิงรูปลักษณ์ภายนอกและในเชิงอัตลักษณ์ภายใน กล่าวคือ สิ่งนั้นอาจไม่ใช่มนุษย์โดยกำเนิด หรืออาจเป็นสิ่งที่มีต้นกำเนิดแตกต่างออกไป แต่มีคุณลักษณะหลายประการที่ทำให้สามารถรับรู้ ตีความ และปฏิบัติต่อมันในฐานะมนุษย์ได้
+
+ในมิติของ รูปลักษณ์ (Physical Form) ความเป็นมนุษย์อาจแสดงออกผ่านโครงสร้างร่างกายที่สอดคล้องกับสรีรวิทยามนุษย์ เช่น มีศีรษะ ลำตัว แขน ขา สัดส่วนทางกายภาพที่ใกล้เคียงมนุษย์ รวมถึงการเคลื่อนไหว สีหน้า ท่าทาง และการใช้ภาษากายที่เลียนแบบพฤติกรรมมนุษย์ได้อย่างสมบูรณ์หรือเกือบสมบูรณ์ ระดับของความเหมือนนี้อาจสูงจนยากต่อการแยกแยะด้วยการสังเกตเพียงผิวเผิน
+
+ในมิติของ ตัวตน (Identity / Selfhood) ความเป็นมนุษย์ไม่ได้จำกัดอยู่แค่รูปลักษณ์ แต่ยังครอบคลุมถึงโครงสร้างทางจิตใจและพฤติกรรม เช่น การมีสติรับรู้ตนเอง (self-awareness) ความสามารถในการใช้เหตุผล การแสดงอารมณ์ ความทรงจำ ความต้องการ และการสร้างความสัมพันธ์กับผู้อื่น หากความผิดปกตินั้นสามารถสื่อสาร แสดงความคิดที่มีโครงสร้าง และมีระบบคุณค่าหรือแรงจูงใจที่สอดคล้องกับมนุษย์ ก็จะยิ่งเพิ่มระดับความเป็นมนุษย์ให้สูงขึ้น
+</p>
+<br>
+<h2 id="toc1"><span>ฮอโมนคุด</span></h2>
+<p>หมายถึง สภาวะหรือสิ่งมีตัวตนที่ดำรงอยู่ “กึ่งกลาง” ระหว่างความเป็นมนุษย์กับสิ่งอื่นที่ไม่ใช่มนุษย์อย่างสมบูรณ์ เป็นโครงสร้างอัตลักษณ์แบบก้ำกึ่ง (liminal entity) ที่มีองค์ประกอบบางส่วนสอดคล้องกับมนุษย์ แต่แก่นแกนของการรับรู้และตรรกะกลับเบี่ยงเบนออกไปจากกรอบความคิดปกติของมนุษย์อย่างมีนัยสำคัญ
+
+ในเชิง รูปลักษณ์ภายนอก (Morphology) ฮอโมนคุดอาจมีสัดส่วนหรือรูปทรงคล้ายมนุษย์ เช่น มีโครงสร้างศีรษะ ลำตัว แขน ขา หรือสามารถเคลื่อนไหวในลักษณะเดียวกับมนุษย์ได้ อย่างไรก็ตาม ความคล้ายคลึงนี้มักไม่สมบูรณ์ อาจมีจุดผิดเพี้ยนบางประการ เช่น สัดส่วนที่ไม่สอดคล้องกับชีวกลศาสตร์มนุษย์ รายละเอียดทางกายภาพที่เกินจริง หรือขาดองค์ประกอบบางอย่างที่ควรมีในสิ่งมีชีวิตตามธรรมชาติ
+
+ในเชิง ตัวตนและจิตสำนึก (Identity & Cognition) ฮอโมนคุดมีลักษณะเด่นคือ “ตรรกะที่บิดเบี้ยว” (distorted logic structure) ระบบความคิดของมันอาจมีโครงสร้างที่ดูเหมือนมีเหตุผล แต่พื้นฐานการเชื่อมโยงเหตุ–ผลกลับตั้งอยู่บนกรอบอ้างอิงที่ต่างจากมนุษย์อย่างสิ้นเชิง ตัวอย่างเช่น การให้คุณค่าต่อเหตุการณ์บางอย่างโดยไม่สอดคล้องกับบริบท การตีความอารมณ์หรือความสัมพันธ์ในรูปแบบที่ผิดทิศทาง หรือการตัดสินใจที่ดูมีแบบแผน แต่ไม่สามารถอธิบายด้วยจิตวิทยามนุษย์ทั่วไปได้
+
+ฮอโมนคุดจึงไม่ใช่มนุษย์แท้ และไม่ใช่สิ่งแปลกแยกโดยสมบูรณ์ หากแต่เป็น “พื้นที่รอยต่อ” ระหว่างสองสภาวะ มีความสามารถในการรับรู้ สื่อสาร หรือเลียนแบบพฤติกรรมมนุษย์ได้ในระดับหนึ่ง แต่ขาดแก่นแท้ของโครงสร้างความคิดที่สอดคล้องกับมนุษย์อย่างแท้จริง
+</p>
+<br>
+<h2 id="toc2"><span>สิ่งมีชีวิต</span></h2>
+<p>โดยทั่วไปมักถูกใช้เพื่ออธิบายตัวตนที่มีความเชื่อมโยงกับ “นามธรรม” หรือพลังบางประเภทที่ไม่อาจอธิบายได้ด้วยกฎทางชีววิทยาหรือฟิสิกส์ตามปกติ กล่าวคือ ไม่ได้ดำรงอยู่เพียงในฐานะสิ่งมีชีวิตทางกายภาพ แต่มีองค์ประกอบเชิงพลังงาน เชิงแนวคิด หรือเชิงสัญลักษณ์แทรกซ้อนอยู่ในโครงสร้างของมัน
+
+ในเชิง ธรรมชาติการดำรงอยู่ (Ontological Status) สิ่งมีชีวิตลักษณะนี้อาจไม่ได้มีร่างกายที่ยึดโยงกับสสารแบบคงที่ อาจปรากฏตัวผ่านรูปแบบที่เปลี่ยนแปลงได้ หรือมีการรับรู้ที่ไม่ขึ้นกับประสาทสัมผัสแบบมนุษย์ บางกรณีอาจถูกมองว่าเป็น “การรวมตัวของแนวคิด” หรือ “การตกผลึกของพลังงานบางชนิด” มากกว่าจะเป็นชีวสิ่งมีชีวิตในความหมายปกติ
+
+ในเชิง คุณสมบัติผิดปกติ (Anomalous Properties) ความผิดปกติอาจแสดงออกผ่าน
+
+ความสามารถที่ละเมิดข้อจำกัดทางกายภาพ เช่น การบิดเบือนเวลา ระยะทาง หรือเหตุ–ผล
+
+การมีอิทธิพลต่อจิตสำนึกของสิ่งมีชีวิตอื่น
+
+การดำรงอยู่ได้โดยไม่ต้องพึ่งพากระบวนการชีวภาพพื้นฐาน เช่น การหายใจ การกิน หรือการสืบพันธุ์
+
+ในเชิง ความสัมพันธ์กับมนุษย์ สิ่งมีชีวิตประเภทนี้มักถูกตีความว่าเป็นสื่อกลางระหว่างโลกวัตถุและโลกนามธรรม เป็นตัวแทนของพลังบางอย่าง เช่น ความกลัว ความเชื่อ ความทรงจำ หรือแรงขับภายในจิตใจมนุษย์ จึงมีสถานะที่ก้ำกึ่งระหว่าง “สิ่งมีชีวิต” กับ “แนวคิดที่มีรูปร่าง”
+</p>
+</div>
+<script src="ค้นหาเมนู.js"></script>
+</body>
+</html>

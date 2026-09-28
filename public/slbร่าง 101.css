@@ -1,0 +1,191 @@
+:root {
+    --primary-color: #0a0a0a;   /* ดำ (หลัก 60%) */
+    --secondary-color: #004a99; /* น้ำเงิน (รอง 30%) */
+    --accent-color: #7b2cbf;    /* ม่วง (เน้น 10%) */
+    --text-white: #ffffff;
+    --bg-light: #f4f4f4;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+    background-color: var(--primary-color);
+    color: var(--text-white);
+    left: 40%;
+}
+.search-box {
+    position: relative;
+    width: 400px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 1px solid var(--secondary-color);
+    background: #000;
+    color: white;
+}
+
+.search-box i {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    color: var(--secondary-color);
+}
+.top-header {
+    background-color: #1a1a1a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    border-bottom: 2px solid var(--secondary-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.side-nav-triggers {
+    background: #222;
+    padding: 10px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.menu-trigger {
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    border-right: 3px solid var(--secondary-color);
+}
+
+.sidebar a {
+    padding: 15px 32px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    color: var(--text-white);
+    background: var(--secondary-color);
+}
+
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+}
+.container {
+    max-width: 1200px;  /* 1. กำหนดความกว้างสูงสุดที่ต้องการ (เช่น 1200px หรือ 1400px) */
+    margin: 0 auto;     /* 2. จัดกึ่งกลาง: บน-ล่าง 0, ซ้าย-ขวา auto */
+    width: 90%;         /* 3. เผื่อพื้นที่ขอบไว้ 10% สำหรับหน้าจอที่เล็กกว่า 1200px */
+    padding: 20px 0;    /* ปรับ padding บน-ล่างตามความเหมาะสม */
+}
+.btn-signin {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.user-icon {
+    font-size: 1.5rem;
+    vertical-align: middle;
+}
+.logo {
+    height: 100%;       /* ให้กล่องโลโก้สูงเท่ากับ Header */
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 60px;       /* ปรับตัวเลขนี้ตามความเหมาะสมของรูปคุณ (เช่น 40px - 80px) */
+    width: auto;        /* สัดส่วนไม่เพี้ยน */
+    transition: 0.3s;   /* ใส่เพื่อให้เวลาเอาเมาส์วางแล้วสมูท */
+}
+
+.logo img:hover {
+    transform: scale(1.1); /* ขยายใหญ่ขึ้นเล็กน้อยเมื่อเอาเมาส์วาง */
+}
+.category-group button {
+    background: transparent;
+    color: white;
+    border: 1px solid #444;
+    padding: 5px 15px;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.category-group button:hover, .category-group button.highlight {
+    background: var(--accent-color);
+}
+/* --- สไตล์กล่องรูปภาพแบบยาว--- */
+
+.slbรูป {
+    /* เปลี่ยนพื้นหลังเป็นสีขาว/เทาอ่อนตามภาพแรก */
+    background-color: #f4f4f4; 
+    border: 1px solid #ccc;
+    padding: 1px; /* เว้นระยะห่างรอบๆ รูป */
+    margin: 20px 0; /* เว้นระยะบนล่าง และจัดกลางแนวนอน */
+    width: 100%;
+    box-sizing: border-box;
+    width: 80%; /* หรือปรับตามความกว้างที่ต้องการ */
+}
+
+.slbรูป img {
+    width: auto; /* สั่งให้รูปขยายเต็มกล่อง */
+    height: auto;
+    display: block;
+}
+
+.กรอบยาว {
+    float: none !important; /* ปิดการลอยขวา */
+    margin-left: auto;
+    margin-right: auto;
+    clear: both;
+    width: 100% !important;
+}
+
+.scp-image-caption {
+    /* เอาสีม่วงออก ให้เป็นพื้นหลังใสเห็นสีพื้นกล่อง */
+    color: lab(100% 0.01 -0.01) !important; /* ตัวหนังสือสีเข้มเพื่อให้อ่านง่ายบนพื้นขาว */
+    text-align: center;
+    padding-top: 10px 0 !important;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    font-weight: bold;
+    border-top: 1px solid #ddd; /* เส้นขีดคั่นจางๆ ใต้รูป */
+    background: hsl(253, 98%, 16%);
+}
+
+/* ลบ margin ของ <p> ใน caption ออกเพื่อให้กึ่งกลางเป๊ะ */
+.scp-image-caption p {
+    margin: 0 !important;
+    line-height: 2; 
+    display: inline-block; /* ช่วยให้การคำนวณตำแหน่งแม่นยำขึ้น */
+}
+/* --- สไตล์กล่องรูปภาพแบบยาว จบ--- */

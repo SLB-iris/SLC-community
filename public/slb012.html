@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S.L.B001</title>
+    <style>
+        :root {
+    --primary-color: #0a0a0a;   /* ดำ (หลัก 60%) */
+    --secondary-color: #004a99; /* น้ำเงิน (รอง 30%) */
+    --accent-color: #7b2cbf;    /* ม่วง (เน้น 10%) */
+    --text-white: #ffffff;
+    --bg-light: #f4f4f4;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+    background-color: var(--primary-color);
+    color: var(--text-white);
+    left: 40%;
+}
+.search-box {
+    position: relative;
+    width: 400px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 1px solid var(--secondary-color);
+    background: #000;
+    color: white;
+}
+
+.search-box i {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    color: var(--secondary-color);
+}
+.top-header {
+    background-color: #1a1a1a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    border-bottom: 2px solid var(--secondary-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.side-nav-triggers {
+    background: #222;
+    padding: 10px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.menu-trigger {
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    border-right: 3px solid var(--secondary-color);
+}
+
+.sidebar a {
+    padding: 15px 32px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    color: var(--text-white);
+    background: var(--secondary-color);
+}
+
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+}
+.container {
+    max-width: 1200px;  /* 1. กำหนดความกว้างสูงสุดที่ต้องการ (เช่น 1200px หรือ 1400px) */
+    margin: 0 auto;     /* 2. จัดกึ่งกลาง: บน-ล่าง 0, ซ้าย-ขวา auto */
+    width: 90%;         /* 3. เผื่อพื้นที่ขอบไว้ 10% สำหรับหน้าจอที่เล็กกว่า 1200px */
+    padding: 20px 0;    /* ปรับ padding บน-ล่างตามความเหมาะสม */
+}
+.btn-signin {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.user-icon {
+    font-size: 1.5rem;
+    vertical-align: middle;
+}
+.logo {
+    height: 100%;       /* ให้กล่องโลโก้สูงเท่ากับ Header */
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 60px;       /* ปรับตัวเลขนี้ตามความเหมาะสมของรูปคุณ (เช่น 40px - 80px) */
+    width: auto;        /* สัดส่วนไม่เพี้ยน */
+    transition: 0.3s;   /* ใส่เพื่อให้เวลาเอาเมาส์วางแล้วสมูท */
+}
+
+.logo img:hover {
+    transform: scale(1.1); /* ขยายใหญ่ขึ้นเล็กน้อยเมื่อเอาเมาส์วาง */
+}
+.category-group button {
+    background: transparent;
+    color: white;
+    border: 1px solid #444;
+    padding: 5px 15px;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.category-group button:hover, .category-group button.highlight {
+    background: var(--accent-color);
+}
+/* 1. จัดการตัวอักษรและพื้นหลังของเนื้อหาหลัก */
+#page-content {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* กำหนดฟอนต์ให้ดูอ่านง่าย */
+    color: hsl(0, 0%, 100%);               /* สีตัวอักษรเป็นเทาเข้ม (ไม่ดำสนิทเพื่อให้สบายตา) */
+    line-height: 1.6;          /* ระยะห่างระหว่างบรรทัด ช่วยให้อ่านข้อความยาวๆ ได้ง่าย */
+    padding: 20px;             /* เพิ่มช่องว่างรอบๆ เนื้อหาไม่ให้ติดขอบ */
+}
+
+/* 2. ตกแต่งหัวข้อหัวเรื่อง (เช่น Item #: หรือ Description:) */
+#page-content strong {
+    color: #900;               /* เปลี่ยนสีตัวหนาเป็นสีแดงเลือดหมู ตามสไตล์ SCP */
+    font-weight: bold;         /* เน้นตัวหนาให้ชัดเจน */
+}
+
+/* 3. จัดการกล่องรูปภาพ (SCP Image Block) */
+.scp-image-block {
+    border: 1px solid #ccc;    /* ใส่เส้นขอบบางๆ สีเทา */
+    box-shadow: 2px 2px 5px rgba(252, 252, 252, 0.1); /* ใส่เงาฟุ้งๆ ให้รูปดูมีมิติ */
+    margin: 0 0 15px 15px;     /* เว้นระยะห่าง: ล่าง 15px, ซ้าย 15px */
+    float: right;              /* สั่งให้รูป "ลอย" ไปอยู่ทางขวา และให้ข้อความไหลล้อมรอบ */
+    width: 250px;              /* กำหนดความกว้างคงที่ของกล่องรูป */
+    background-color: #f9f9f9; /* ใส่พื้นหลังสีเทาอ่อนให้กล่องรูป */
+}
+
+/* 4. ปรับแต่งตัวรูปภาพข้างใน */
+.scp-image-block img {
+    width: 100%;               /* ให้รูปขยายเต็มความกว้างของกล่อง (250px) */
+    height: auto;              /* ปรับความสูงตามสัดส่วนรูปจริง ไม่ให้รูปเบี้ยว */
+    display: block;            /* กำหนดให้เป็นบล็อกเพื่อไม่ให้มีช่องว่างด้านล่าง */
+}
+
+/* 5. คำบรรยายใต้ภาพ (Caption) */
+.scp-image-caption {
+    padding: 5px;              /* เพิ่มช่องว่างรอบๆ ข้อความบรรยาย */
+    text-align: center;        /* จัดข้อความให้อยู่กึ่งกลาง */
+    font-size: 0.9em;          /* ปรับขนาดตัวอักษรให้เล็กกว่าเนื้อหาปกติเล็กน้อย */
+    border-top: 1px solid hwb(0 85% 15%); /* ใส่เส้นคั่นระหว่างรูปกับข้อความบรรยาย */
+    background: hsl(253, 98%, 16%);          /* ใส่พื้นหลังเข้มขึ้นนิดหน่อยเพื่อให้ดูแยกส่วน */
+}
+
+/* 6. ตกแต่งส่วนกล่องคำพูดหรือบันทึก (Blockquote) */
+blockquote {
+    border: 1px dashed #666;   /* ใส่เส้นขอบเป็น "เส้นประ" สีเทาเข้ม */
+    background-color: lch(3.67% 36.58 307.4); /* พื้นหลังสีเทาอ่อนสว่าง */
+    padding: 15px;             /* เว้นช่องว่างภายในกล่อง */
+    margin: 10px 0;            /* เว้นระยะห่างบนและล่างกล่อง */
+    border-left: 5px solid #666; /* เพิ่มแถบเส้นทึบหนาๆ ด้านซ้ายเพื่อเน้นว่าเป็นข้อความอ้างอิง */
+}
+#page-title {
+    color: #900;                /* เปลี่ยนสีตัวอักษรเป็นสีแดงเข้ม (สีประจำเว็บ SCP) */
+    font-size: 2.5rem;          /* ขยายขนาดตัวอักษรให้ใหญ่ขึ้น */
+    font-weight: bold;          /* ปรับให้เป็นตัวหนา */
+    border-bottom: 3px solid rgb(65, 65, 65); /* สร้างเส้นคั่นด้านล่าง หนา 3px สีแดงเดียวกับตัวอักษร */
+    margin-bottom: 20px;        /* เว้นระยะห่างด้านล่างเส้นคั่นกับเนื้อหา */
+    padding-bottom: 5px;        /* เว้นช่องว่างระหว่างตัวหนังสือกับเส้นคั่น */
+    text-transform: uppercase;  /* (ตัวเลือกเสริม) ปรับตัวอักษรให้เป็นตัวพิมพ์ใหญ่ทั้งหมด */
+}
+
+
+    </style>
+    <link rel="stylesheet" href="ค้นหา.css">
+    <link rel="stylesheet" href="4slb.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="top-header">
+        <a href="index.html">
+        <div class="header-left">
+            <div class="logo">
+                <img src="รูป/โลโก้.png" alt="S.L.B Logo"> </div>
+        </div>
+        </a>
+            <div class="header-center">
+                <div class="search-box">
+                <input type="text" id="searchInput" placeholder="ค้นหาข้อมูล S.L.B..." autocomplete="off">
+                <i class="fas fa-search"></i>
+                <div id="resultsList" class="search-results"></div>
+            </div>
+        </div>
+        <div class="header-right">
+            <button class="btn-signin">Sign In</button>
+            <i class="fas fa-user-circle user-icon"></i>
+        </div>
+    </header>
+
+    <nav class="side-nav-triggers">
+        <button onclick="toggleLeftMenu()" class="menu-trigger"><i class="fas fa-bars"></i> เมนูหลัก</button>
+        <div class="category-group">
+           <a href="7ระดับ.html"><button>ระดับ</button></a>
+            <a href="8ประเภท.html"><button>ประเภท</button></a>
+            <a href="9ไทม์ไลน์.html"><button>ไทม์ไลน์</button></a>
+            <a href="10มินิเกม.html"><button>มินิเกม</button></a>
+            <a href="11ใหม่ล่าสุด.html"><button>ใหม่ล่าสุด</button></a>
+        </div>
+    </nav>
+
+    <div id="leftMenu" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="toggleLeftMenu()">&times;</a>
+        <a href="index.html"><i class="fas fa-home"></i> หน้าหลัก</a>
+        <a href="2เนื้อหลัก.html"><i class="fas fa-database"></i> เนื้อหาหลัก</a>
+        <a href="3คำอธิบายเนื้อหา.html"><i class="fas fa-file-alt"></i> คำอธิบายเนื้อหา</a>
+        <a href="4เกี่ยวกับเรา.html"><i class="fas fa-info-circle"></i> เกี่ยวกับเรา</a>
+        <a href="5เนื้อหาเสริม.html"><i class="fas fa-plus-square"></i> เนื้อหาเสริม</a>
+        <a href="6ติดต่อเรา.html"><i class="fas fa-envelope"></i> ติดต่อเรา</a>
+    </div>
+
+    <main class="container">
+    <script>
+    function toggleLeftMenu() {
+        const menu = document.getElementById("leftMenu");
+        // เช็คว่าเมนูเปิดอยู่หรือเปล่า ถ้ากว้าง 0 หรือยังไม่ได้ตั้งค่า ให้ขยายเป็น 250px
+        if (menu.style.width === "250px") {
+            menu.style.width = "0";
+        } else {
+            menu.style.width = "250px";
+        }
+    }
+</script>
+<div id="main-content">
+      <div id="action-area-top"></div>
+                        <div id="page-title">
+                            SLB-
+                        </div>
+<div id="page-content">
+<div class="scp-image-block block-right" style="width:250px;"><img src="รูป/" alt="2014-07-18%2022.41.47-new.jpg" class="image" />
+<div class="scp-image-caption">
+<p>SLB-</p>
+</div>
+</div>
+<p><strong>Item #:</strong> SLB-</p>
+<p><strong>คลาสวัตถุ:</strong> </p>
+<p><strong>มาตรการกักกัน:</strong></p>
+<p><strong>รายละเอียด:</strong> </p>
+
+<blockquote>
+<p><strong>&lt;Begin Log&gt;</strong></p>
+<p><em>Dr. █████:</em> Please give a brief personal introduction, including date and place of birth, and your name.</p>
+<p><strong>&lt;End Log&gt;</strong></p>
+</blockquote>
+<p><strong>Addendum 3: History of Service with Mobile Task Force Omega-7:</strong></p>
+<script src="ค้นหาเมนู.js"></script>
+</body>
+        

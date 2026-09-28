@@ -1,0 +1,442 @@
+:root {
+    --primary-color: #0a0a0a;   /* ดำ (หลัก 60%) */
+    --secondary-color: #004a99; /* น้ำเงิน (รอง 30%) */
+    --accent-color: #7b2cbf;    /* ม่วง (เน้น 10%) */
+    --text-white: #ffffff;
+    --bg-light: #f4f4f4;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+    background-color: var(--primary-color);
+    color: var(--text-white);
+
+}
+.search-box {
+    position: relative;
+    width: 400px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 1px solid var(--secondary-color);
+    background: #000;
+    color: white;
+}
+
+.search-box i {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    color: var(--secondary-color);
+}
+.top-header {
+    background-color: #1a1a1a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    border-bottom: 2px solid var(--secondary-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.side-nav-triggers {
+    background: #222;
+    padding: 10px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.menu-trigger {
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    border-right: 3px solid var(--secondary-color);
+}
+
+.sidebar a {
+    padding: 15px 32px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+.sidebar a:hover {
+    color: var(--text-white);
+    background: var(--secondary-color);
+}
+
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+}
+.container {
+    max-width: 1200px;  /* 1. กำหนดความกว้างสูงสุดที่ต้องการ (เช่น 1200px หรือ 1400px) */
+    margin: 0 auto;     /* 2. จัดกึ่งกลาง: บน-ล่าง 0, ซ้าย-ขวา auto */
+    width: 90%;         /* 3. เผื่อพื้นที่ขอบไว้ 10% สำหรับหน้าจอที่เล็กกว่า 1200px */
+    padding: 20px 0;    /* ปรับ padding บน-ล่างตามความเหมาะสม */
+}
+.btn-signin {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.user-icon {
+    font-size: 1.5rem;
+    vertical-align: middle;
+}
+.logo {
+    height: 100%;       /* ให้กล่องโลโก้สูงเท่ากับ Header */
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 60px;       /* ปรับตัวเลขนี้ตามความเหมาะสมของรูปคุณ (เช่น 40px - 80px) */
+    width: auto;        /* สัดส่วนไม่เพี้ยน */
+    transition: 0.3s;   /* ใส่เพื่อให้เวลาเอาเมาส์วางแล้วสมูท */
+}
+
+.logo img:hover {
+    transform: scale(1.1); /* ขยายใหญ่ขึ้นเล็กน้อยเมื่อเอาเมาส์วาง */
+}
+.category-group button {
+    background: transparent;
+    color: white;
+    border: 1px solid #444;
+    padding: 5px 15px;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.category-group button:hover, .category-group button.highlight {
+    background: var(--accent-color);
+}
+
+/*รอง*/
+.parent {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 8px;
+}
+    
+.div1 {
+    grid-column: span 3 / span 3;
+    grid-row: span 5 / span 5;
+    grid-column-start: 2;
+    grid-row-start: 1;
+}
+
+.div2 {
+    grid-row: span 5 / span 5;
+    grid-column-start: 5;
+    grid-row-start: 1;
+}
+
+
+/*หนัวสือ*/
+.slider-container {
+    perspective: 1000px; /* สร้างมิติความลึก */
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0a0a0a;
+    overflow: hidden;
+}
+
+.slider {
+    position: relative;
+    width: 300px;
+    height: 450px;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    background: #1a1a1a;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+/* ปรับตำแหน่งการ์ดที่อยู่ตรงกลาง */
+.card.active {
+    transform: translate3d(0, 0, 150px);
+    z-index: 10;
+    filter: brightness(1);
+}
+
+/* ปรับการ์ดที่อยู่ด้านซ้าย */
+.card.prev {
+    transform: translate3d(-100%, 0, 0) rotateY(45deg);
+    z-index: 5;
+    filter: brightness(0.3);
+}
+
+/* ปรับการ์ดที่อยู่ด้านขวา */
+.card.next {
+    transform: translate3d(100%, 0, 0) rotateY(-45deg);
+    z-index: 5;
+    filter: brightness(0.3);
+}
+
+/* ซ่อนการ์ดอื่นๆ ที่ไม่ใช่ 3 ใบหลัก */
+.card.hidden {
+    opacity: 0;
+    transform: translate3d(0, 0, -500px);
+}
+
+/* สไตล์ข้อความ SCP บนรูป */
+.scp-info {
+    position: absolute;
+    bottom: 0;
+    padding: 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+    color: white;
+    width: 100%;
+    z-index: 5; /* มั่นใจว่าอยู่เหนือรูป */
+}
+/* จัดตำแหน่งกลุ่มปุ่มควบคุม */
+.nav-controls {
+    position: absolute;
+    width:98%; /* ขยายให้กว้างกว่ากล่อง slider */
+    max-width: 95vw;        /* กันปุ่มหลุดขอบหน้าจอในมือถือ */
+    display: flex;
+    justify-content: space-between; /* แยกซ้าย-ขวา */
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none; /* เพื่อไม่ให้กล่องปุ่มไปบังการคลิกที่รูป */
+    z-index: 100;
+ 
+}
+
+/* ปรับขนาดและสไตล์ปุ่ม */
+.nav-btn-main {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    width: 70px; height: 70px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: 0.3s;
+    pointer-events: auto;
+    backdrop-filter: blur(5px);
+    outline: none;
+}
+
+.nav-btn-main:hover {
+    background: var(--secondary-color);
+    transform: scale(1.1);
+    border-color: white;
+}
+/*ส่วนร่าง*/
+/* บังคับให้ไอคอนข้างในไม่มีพื้นหลังสี่เหลี่ยม */
+.nav-btn-main i {
+    background: transparent !important;
+    border: none !important;
+    font-size: 2rem;
+    color: white;
+}
+/* --- ส่วนเนื้อหาด้านล่าง (Detail Section) --- */
+#detail-section {
+    position: relative;
+    overflow: hidden;
+    padding: 0 !important;
+    min-height: 400px;
+    width: auto;
+    background: #000; /* กันเหนียวถ้ารูปโหลดไม่ขึ้น */
+}
+/* รูปพื้นหลังที่จางลง (Dimmed Background) */
+.detail-bg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.4; /* ปรับให้จางลงเพื่อให้ข้อความอ่านง่าย */
+    transition: background-image 0.8s ease, opacity 0.8s;
+    z-index: 0;
+}
+
+.detail-content {
+    position: relative;
+    z-index: 1; /* ให้ข้อความอยู่เหนือรูป */
+}
+
+/* Animation เลื่อนขึ้น */
+.animate-up {
+    animation: slideUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.line-divider {
+    width: 100%;
+    border-bottom: 1px dashed rgba(255,255,255,0.3);
+    margin: 15px 0;
+}
+/* --- ตัวอักษรขนาดใหญ่ --- */
+.faded-title-inner {
+    position: absolute;
+    top: 20%; /* จัดให้อยู่กึ่งกลางแนวตั้งของหัวข้อนั้นๆ */
+    left: 40px;
+    transform: translateY(-50%);
+    font-size: 10rem; 
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.04); /* จางมากๆ */
+    text-transform: uppercase;
+    white-space: nowrap;
+    z-index: 1; /* อยู่เหนือรูปภาพ (.group-bg ซึ่งเป็น -1) */
+    pointer-events: none;
+    user-select: none;
+}
+/* --- จัดระเบียบเนื้อหาเสริมให้ดูเยอะขึ้น --- */
+.main-desc {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #ccc;
+}
+.extra-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.info-box {
+    border-left: 3px solid var(--secondary-color);
+    padding-left: 15px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 10px;
+}
+
+.info-box .label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+/* ปรับความสว่างของภาพพื้นหลัง (div2) */
+.detail-bg {
+    opacity: 0.3; /* จางลงอีกเพื่อให้อ่านง่าย */
+}
+/*หัว2-3*/
+.sub-topic {
+    font-size: 1.8rem;
+    color: var(--secondary-color); /* ใช้สีน้ำเงินเน้น */
+    margin-top: 40px; /* เว้นระยะจากเนื้อหาข้างบน */
+    margin-bottom: 10px;
+    border-left: 5px solid var(--secondary-color);
+    padding-left: 15px;
+}
+
+.content-img {
+    width: 100%;           /* ให้กว้างเต็มเนื้อหา */
+    max-width: 500px;      /* แต่ไม่ให้ใหญ่เกินไปจนบังที่อื่น */
+    height: auto;
+    margin: 15px 0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    display: block;        /* ตั้งเป็น block เพื่อให้ซ่อนง่าย */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    filter: sepia(0.2) contrast(1.1); /* แต่งสีรูปให้ดูเก่าๆ ขรึมๆ นิดนึง */
+}
+
+/* ถ้าไม่มีรูป ให้ซ่อนแท็ก img ไปเลย */
+.content-img[src=""], .content-img:not([src]) {
+    display: none;
+}
+/* คอนเทนเนอร์ของแต่ละชุด */
+.content-group {
+    position: relative;
+    padding: 80px 40px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box; /* กัน padding ดันขอบจอ */
+}
+
+/* ตั้งค่ารูปพื้นหลังทุกรูป */
+.group-bg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.3; /* ทำให้รูปจางลงทั้งหมดเพื่อให้อ่านง่าย */
+    z-index: -1;
+    transition: background-image 0.5s ease;
+}
+
+/* เทคนิคทำให้รูปแรกด้านบน "จางหาย" ไปกับพื้นหลังเว็บ */
+.first-bg {
+    /* ใช้ to top: ด้านล่างชัด (0,0,0,1) และวิ่งไปจางที่ด้านบน (0,0,0,0) */
+    mask-image: linear-gradient(to top, 
+        rgba(0, 0, 0, 1) 60%, 
+        rgba(0, 0, 0, 0) 100%
+    );
+    -webkit-mask-image: linear-gradient(to top, 
+        rgba(0, 0, 0, 1) 60%, 
+        rgba(0, 0, 0, 0) 100%
+    );
+    
+}
+
+/* ทำให้ตัวหนังสืออยู่เหนือรูป */
+.group-inner {
+    position: relative;
+    z-index: 2;
+}
+
+.line-divider {
+    width: 100%;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.4);
+    margin: 15px 0;
+}
